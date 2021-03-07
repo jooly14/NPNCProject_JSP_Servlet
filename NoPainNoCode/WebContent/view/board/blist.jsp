@@ -8,17 +8,6 @@
 </head>
 <body>
 <%@ include file="/view/common/nav_category.jsp" %>
-<%
-	int curpage = (Integer)request.getAttribute("page");
-	int start = (curpage/10)*10+1;
-	if(curpage%10==0){
-		start = (curpage/10-1)*10+1;
-	}
-	int totalpage = (Integer)request.getAttribute("totalpage");
-%>
-<c:set var="start" value="<%=start%>" />
-<c:set var="curpage" value="<%=curpage%>" />
-<c:set var="totalpage" value="<%=totalpage%>" />
 <div>
 <!-- 한페이지당 페이지 노출 개수 -->
 <select id="psize">
@@ -57,10 +46,10 @@
 	<c:if test="${start ne 1}">
 		<a href="board?cmd=blist&page=${start-1}&psize=${pagesize}&type=${type}&keyword=${keyword}&category=${category}">[이전]</a>
 	</c:if>
-	<c:forEach var="i" begin="${start}" end="${start+9<totalpage?start+9:totalpage}">
-		<a style="color:${i eq curpage?'orange':'black'}" href="board?cmd=blist&page=${i}&psize=${pagesize}&type=${type}&keyword=${keyword}&category=${category}">${i}</a>
+	<c:forEach var="i" begin="${start}" end="${end<totalpage?end:totalpage}">
+		<a style="color:${i eq page?'orange':'black'}" href="board?cmd=blist&page=${i}&psize=${pagesize}&type=${type}&keyword=${keyword}&category=${category}">${i}</a>
 	</c:forEach>
-		<c:if test="${start+9<totalpage}">
+		<c:if test="${end<totalpage}">
 		<a href="board?cmd=blist&page=${start+10}&psize=${pagesize}&type=${type}&keyword=${keyword}&category=${category}">[다음]</a>
 	</c:if>
 </div>

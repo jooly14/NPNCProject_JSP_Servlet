@@ -1,5 +1,5 @@
 package com.npnc.board.dto;
 
-public class RDto {	//ï¿½ï¿½ï¿½ dto
+public class RDto {	//´ñ±Û dto
 
 }

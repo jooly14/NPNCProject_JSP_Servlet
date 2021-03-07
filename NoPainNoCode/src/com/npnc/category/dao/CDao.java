@@ -22,8 +22,8 @@ public class CDao {	//게시글 관련 DAO
 	
 	DataSource dataSource = null;
 
-	public Map<String, Vector<CDto>> getCategoryList() {
-		Map<String, Vector<CDto>> map = new HashMap<>();
+	public Map<String, Vector<CDto>> getCategoryList() {	//maincategory필드 값을 키 값으로 category테이블 값을 갖고 있는 CDto리스트를 가지고 있는 hashmap
+		Map<String, Vector<CDto>> map = new HashMap<>();	//같은 maincategory를 갖는 카테고리 값들을 하나의 키에 모아놓음
 		getConnection();
 		String sql = "SELECT * FROM category ORDER BY maincategory";
 		try {
@@ -36,10 +36,10 @@ public class CDao {	//게시글 관련 DAO
 				int readgrade = rs.getInt(4);
 				int writegrade = rs.getInt(5);
 				CDto dto = new CDto(idx, name, readgrade, writegrade);
-				if(!map.containsKey(maincategory)){
+				if(!map.containsKey(maincategory)){		//maincategory값이 존재하지 않으면 map에 새로 키를 추가
 					map.put(maincategory, new Vector<CDto>());
 					map.get(maincategory).add(dto);
-				}else{
+				}else{									//maincategory값이 존재하면 기존 키값을 이용해서 추가
 					map.get(maincategory).add(dto);
 				}
 			}

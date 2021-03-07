@@ -2,7 +2,8 @@
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.Map"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div>
+<!-- 모든 페이지에 왼쪽에 붙을 카테고리 -->
+<nav>
 	<%
 		Map<String,Vector<CDto>> map = (Map<String,Vector<CDto>>)request.getAttribute("clist");
 		for(Map.Entry<String,Vector<CDto>> e :map.entrySet()){
@@ -17,4 +18,4 @@
 			}
 		}	
 	%>
-</div>
+</nav>
