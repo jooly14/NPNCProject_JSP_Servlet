@@ -1,0 +1,108 @@
+	*{
+		margin:0;
+		padding:0;
+		box-sizing:border-box;
+	}
+	#wrap{
+		width:100%;
+	}
+	#section1{
+		width:1080px;
+		margin: 50px auto 0px;
+		display: flex;
+		align-self: start;
+		justify-content: space-between;
+	}
+	
+	
+	/**********************************************************/
+	
+	#content{
+		width: 78%;
+		display: inline-block;
+	}
+	#content h2{
+		font-size:22px;
+	}
+	#content a{
+		color: black;
+		text-decoration:none;
+	}
+	#content a:hover{
+		text-decoration:underline;
+	}
+	
+	.list-style{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 40px;
+	}
+	#total{
+		font-size:13px;
+	}
+	#psize{
+		width:80px;
+		height:30px;
+		border-radius:0;
+		padding-left:4px;
+		border: 1px solid lightgray;
+	}
+	#content .list-table{
+		width:100%;
+		border-top: 1px solid black;
+		border-collapse: collapse;
+	}
+	#content .list-table tr:nth-child(1) td{
+		text-align: center;
+		height: 45px;
+	}
+	#content .list-table td{
+		padding: 4px 7px;
+		border-bottom: 1px solid #f2f2f2;
+		font-size: 14px;
+	}
+	.paging{
+		margin-top:30px;
+		display:flex;
+		justify-content: center;
+	}
+	.paging a{
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		font-size:14px;
+	}
+	.paging .abn{
+		width:60px;
+	}
+	.search-form{
+		height:70px;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.search-form select{
+		height: 35px;
+		width:150px;
+		padding: 5px 0px 0px 12px;
+		border-color: lightgray;
+		margin-right:5px;
+	}
+	.search-form input[type="search"]{
+		height: 35px;
+		width:180px;
+		border : 1px solid lightgray;
+	}
+	.search-form input[type="submit"]{
+		width: 56px;
+		height:36px;
+		background-color: #03c75a;
+		border: none;
+		color: white;
+	}
+	.search-form form{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+	}

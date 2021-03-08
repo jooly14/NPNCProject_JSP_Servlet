@@ -1,4 +1,4 @@
-package com.npnc.board.controller;
+package com.npnc.manage.controller;
 
 import java.io.IOException;
 
@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
-import com.npnc.board.service.BListHandler;
-import com.npnc.board.service.BWriteHandler;
-import com.npnc.board.service.BWriteprocHandler;
 import com.npnc.board.service.CommandHandler;
 import com.npnc.category.service.CListHandler;
+import com.npnc.manage.service.CListCntHandler;
+import com.npnc.manage.service.MBDeleteHandler;
+import com.npnc.manage.service.MBListHandler;
+import com.npnc.manage.service.MBMoveCategoryHandler;
 
-@WebServlet("/board")
-public class BoardController extends HttpServlet {
+@WebServlet("/manage")
+public class ManageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request,response);
@@ -33,18 +32,23 @@ public class BoardController extends HttpServlet {
 		CommandHandler handler = null;
 		
 		if(cmd.equals("blist")){
-			handler = new BListHandler();	//cmd파라미터에 맞는 handler생성
-		}else if(cmd.equals("bwrite")){
-			handler = new BWriteHandler();
-		}else if(cmd.equals("bwriteproc")){
-			handler = new BWriteprocHandler();
-		}else {
-			
+			handler = new MBListHandler();	//cmd파라미터에 맞는 handler생성
+			CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
+			clistHandler.process(request, response);
+		}else if(cmd.equals("onepassdel")){
+			handler = new MBDeleteHandler();
+			viewpage = handler.process(request, response);
+			response.sendRedirect(viewpage);
+			return;
+		}else if(cmd.equals("movecategory")){
+			handler = new MBMoveCategoryHandler();
+			CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
+			clistHandler.process(request, response);
+		}else if(cmd.equals("clist")){
+			handler = new CListCntHandler();
 		}
 		
 		viewpage = handler.process(request,response);	//dao 호출 및 필요 기능 실행하고 jsp페이지 받아오기
-		CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
-		clistHandler.process(request, response);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
 		dispatcher.forward(request, response);
 		

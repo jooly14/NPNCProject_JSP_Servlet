@@ -1,4 +1,4 @@
-package com.npnc.board.service;
+package com.npnc.manage.service;
 
 import java.util.Vector;
 
@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.npnc.board.dao.BDao;
 import com.npnc.board.dto.BDto;
+import com.npnc.board.service.BListHandler;
+import com.npnc.board.service.CommandHandler;
 
-public class BListHandler implements CommandHandler {
+public class MBListHandler extends BListHandler {
 	private int totalCnt;	//전체 게시글 개수
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -49,7 +51,7 @@ public class BListHandler implements CommandHandler {
 		request.setAttribute("category", category);		//현재 선택 중인 카테고리(ex.수도권-강남 카테고리의 인덱스)
 		
 
-		return "view/board/blist.jsp";
+		return "view/manage/main.jsp";
 	}
 	public void setTotalCnt(int totalCnt) {				//getList()메서드에서 두개를 반환할 수 없어서 따로 setter를 준비(메서드 내부에서 호출해서 totalcnt값을 전달)
 		this.totalCnt = totalCnt;
