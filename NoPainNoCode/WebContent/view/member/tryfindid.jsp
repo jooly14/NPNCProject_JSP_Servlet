@@ -8,14 +8,16 @@
 </head>
 <body>
 <%
-	if((int)request.getAttribute("result")>0){
+	String id=(String)request.getAttribute("id");
+	if(id==null){
 %>
-		회원가입을 축하합니다.<br>
-		<input type="button" value="메인으로" onclick="location.href='board'">
+		정보가 틀렸습니다.
 <%
-	}else {
+	}else{
 %>
-		잘못된 정보입니다.
-<%}%>
+		아이디 : <%=id %>
+<%
+	}
+%>
 </body>
 </html>

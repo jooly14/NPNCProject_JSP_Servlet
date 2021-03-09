@@ -16,6 +16,7 @@
 </head>
 <body>
 <div id="wrap">
+	<%@ include file="/view/common/header.jsp" %>
 	<section id="section1">
 	<%@ include file="/view/common/nav_category.jsp" %>
 		<div id="content">
@@ -53,8 +54,9 @@
 				</tr>
 			</c:forEach>
 			</table>
-			
-			
+			<c:if test="${sessionScope.id!=null}">
+				<input type="button" value="글쓰기" onclick="location.href = 'board?cmd=bwrite&category=${category}'">
+			</c:if>
 			<!-- 페이징 -->
 			<div class="paging">
 				<c:if test="${start ne 1}">

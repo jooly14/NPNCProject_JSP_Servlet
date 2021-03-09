@@ -1,13 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<style>
+	#wrap{
+		width:320px;
+		margin : 0 auto;
+		margin-top:70px;
+		display:flex;
+		flex-flow:row wrap;
+		justify-content: center;
+	}
+	#d1{
+		width: 100%;
+		text-align:center;
+	}
+	input[type=button]{
+		width: 80px;
+	    height: 30px;
+	    background-color: white;
+	    border: 1px solid lightgray;
+	    margin: 2px 0;
+	    margin-top:30px;
+	}
+</style>
 </head>
 <body onunload='opener.location.reload();'>
-	<div>Ä«Å×°í¸® º¯°æÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù.</div>
-	<input type="button" onclick="window.close()" value="´İ±â">
+<div id="wrap">
+	<div id="d1">ì¹´í…Œê³ ë¦¬ ë³€ê²½ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.</div>
+	<input type="button" onclick="window.close()" value="ë‹«ê¸°">
+</div>
+<script>
+	window.resizeTo(400,300);
+</script>
 </body>
 </html>

@@ -4,10 +4,43 @@
 <html>
 <head>
 <title>Insert title here</title>
+<style>
+	#wrap{
+		width:320px;
+		margin : 0 auto;		
+	}
+	table{
+		border-top:1px solid black;
+		width:100%;
+		cell-collapse:collapse;
+	}
+	td:nth-child(1){
+		text-align:center;
+		border-right: 1px solid #f2f2f2;
+	
+	}
+	td{
+		padding: 7px 7px;
+	}
+	#sel-category{
+	    width: 180px;
+	    height: 30px;
+	    border-radius: 0;
+	    padding-left: 4px;
+	    border: 1px solid lightgray;
+	}
+	#chgBtn{
+		width: 80px;
+	    height: 30px;
+	    background-color: white;
+	    border: 1px solid lightgray;
+	    margin: 2px 0;
+	}
+</style>
 </head>
 <body>
 	<h3>카테고리 이동</h3>	
-	<form action="<%=request.getContextPath()%>/manage?cmd=movecategory" method="post">
+	<form id="fm1" action="<%=request.getContextPath()%>/manage?cmd=movecategory" method="post">
 	<table>
 		<tr>
 			<td>글번호</td>
@@ -30,7 +63,7 @@
 			<td><select id="sel-category" name="category"></select></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="변경"></td>
+			<td colspan="2"><input id="chgBtn" type="button" value="변경"></td>
 		</tr>
 	</table>
 	<input type="hidden" name="idx">
@@ -56,6 +89,11 @@
 			}
 			 $("#sel-category").children("option").eq(idx2).attr("selected",true);
 			 $("input[type='hidden']").val($("#idx").text());
+		});
+		$("#chgBtn").click(function(){
+			if($("#sel-category option:selected").val()!=hcategory){
+				$("#fm1").submit();
+			}
 		});
 	</script>
 </body>

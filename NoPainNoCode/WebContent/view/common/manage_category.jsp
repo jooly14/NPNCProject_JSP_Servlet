@@ -9,7 +9,7 @@
 				<li><a href="<%=request.getContextPath()%>/manage?cmd=blist">글 관리</a></li>
 				<li><a href="<%=request.getContextPath()%>/manage?cmd=clist">카테고리 관리</a></li>
 				<li><a href="<%=request.getContextPath()%>/manage?cmd=mlist">회원 관리</a></li>
-				<li><a href="<%=request.getContextPath()%>/manage?cmd=rlist">댓글 관리</a></li>
+				<%-- <li><a href="<%=request.getContextPath()%>/manage?cmd=rlist">댓글 관리</a></li> --%>
 			</ul>
 </div>
 <script>

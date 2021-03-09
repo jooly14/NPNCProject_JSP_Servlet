@@ -9,17 +9,22 @@
 </head>
 <body>
 <%
-	if(request.getAttribute("id")==null){
+   if(request.getAttribute("id")==null){
 %>
-	로그인 실패!
+   <script>
+      alert("정보가 틀렸습니다.");
+      location.href="view/member/login.jsp";
+   </script>
 <%
-	}else{
-		session.setAttribute("id", request.getAttribute("id"));
-		session.setAttribute("pw", request.getAttribute("pw"));
+   }else{
+      session.setAttribute("id", request.getAttribute("id"));
+      session.setAttribute("pw", request.getAttribute("pw"));
 %>
-	<%=request.getAttribute("id") %>님 환영합니다.
+   <script>
+      location.href="board";
+   </script>
 <%
-	}
+   }
 %>
 
 </body>
