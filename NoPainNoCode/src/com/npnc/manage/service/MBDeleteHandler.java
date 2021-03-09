@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.npnc.board.service.CommandHandler;
-import com.npnc.manage.dao.MDao;
+import com.npnc.manage.dao.MgrDao;
 
 public class MBDeleteHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		MDao dao = new MDao();
+		MgrDao dao = new MgrDao();
 		String[] del_idxArr = request.getParameterValues("del_idx");
 		String type = request.getParameter("type");
 		String keyword = request.getParameter("keyword");

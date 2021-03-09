@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.npnc.board.service.BListHandler;
 import com.npnc.board.service.CommandHandler;
 import com.npnc.category.service.CListHandler;
+import com.npnc.member.service.MFindIdHandeler;
 import com.npnc.member.service.MLegHandler;
 import com.npnc.member.service.MLoginHandler;
+import com.npnc.member.service.MLogoutHandler;
 
 @WebServlet("/member")
 public class MemberController extends HttpServlet {
@@ -30,7 +32,14 @@ public class MemberController extends HttpServlet {
 			handler = new MLegHandler();	//cmd파라미터에 맞는 handler생성
 		}else if(cmd.equals("login")){
 			handler = new MLoginHandler();	//cmd파라미터에 맞는 handler생성
-		}else{
+		}else if(cmd.equals("logout")){
+			handler = new MLogoutHandler();
+			handler.process(request, response);
+			response.sendRedirect("board");
+			return;
+		}else if(cmd.equals("findid")){
+			handler = new MFindIdHandeler();	//cmd파라미터에 맞는 handler생성
+		}else {
 			
 		}
 		viewpage = handler.process(request,response);	//dao 호출 및 필요 기능 실행하고 jsp페이지 받아오기

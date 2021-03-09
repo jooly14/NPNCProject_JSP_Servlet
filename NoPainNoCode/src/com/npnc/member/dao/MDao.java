@@ -20,6 +20,26 @@ public class MDao {	//회원 관련 DAO
 	
 	DataSource dataSource = null;
 	
+	public String findId(String idnum,String phonenum) {
+		String id=null;
+		try {
+			getConnection();
+			String query="select * from member where idnum=? and phonenum=?";
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,idnum);
+			pstmt.setString(2,phonenum);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				id=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		return id;
+	}
+	
 	public MDto loginMember(String id,String pw) {
 		MDto dto=new MDto();
 		try {

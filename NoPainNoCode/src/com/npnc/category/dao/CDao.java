@@ -25,7 +25,7 @@ public class CDao {	//게시글 관련 DAO
 	public Map<String, Vector<CDto>> getCategoryList() {	//maincategory필드 값을 키 값으로 category테이블 값을 갖고 있는 CDto리스트를 가지고 있는 hashmap
 		Map<String, Vector<CDto>> map = new HashMap<>();	//같은 maincategory를 갖는 카테고리 값들을 하나의 키에 모아놓음
 		getConnection();
-		String sql = "SELECT * FROM category ORDER BY maincategory";
+		String sql = "SELECT * FROM category ORDER BY maincategory,idx";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

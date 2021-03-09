@@ -12,6 +12,8 @@ import org.json.simple.JSONObject;
 
 import com.npnc.ajax.service.ABListHandler;
 import com.npnc.ajax.service.ACommandHandler;
+import com.npnc.ajax.service.AMCateGradeChgHandler;
+import com.npnc.ajax.service.AMGradeChangeHandler;
 
 @WebServlet("/ajax")
 public class AjaxController extends HttpServlet {	//ajax처리를 담당할 controller
@@ -30,8 +32,10 @@ public class AjaxController extends HttpServlet {	//ajax처리를 담당할 controller
 		JSONObject json = null;
 		if(cmd.equals("ablist")){			//게시글 조회 밑에 게시글리스트를 보여주기 위한 기능
 			handler = new ABListHandler();	//cmd파라미터에 맞는 handler생성
-		}else{
-			
+		}else if(cmd.equals("mgrade")){
+			handler = new AMGradeChangeHandler();
+		}else if(cmd.equals("mcategrade")){
+			handler = new AMCateGradeChgHandler();
 		}
 		json = handler.process(request, response);	//json을 반환 받아서
 		response.getWriter().print(json);			//response의 출력 스트림 생성 후 이를 이용해서 json을 써주면 ajax요청이 있었던 페이지로 응답이 전달된다

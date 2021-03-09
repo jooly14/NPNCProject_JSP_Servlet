@@ -15,6 +15,7 @@ import com.npnc.board.service.BListHandler;
 import com.npnc.board.service.BWriteHandler;
 import com.npnc.board.service.BWriteprocHandler;
 import com.npnc.board.service.CommandHandler;
+import com.npnc.board.service.NullHandler;
 import com.npnc.category.service.CListHandler;
 
 @WebServlet("/board")
@@ -31,14 +32,15 @@ public class BoardController extends HttpServlet {
 		String viewpage="";							//이동할 jsp 페이지
 		String cmd = request.getParameter("cmd");	//사용자 요청 기능
 		CommandHandler handler = null;
-		
-		if(cmd.equals("blist")){
+		if(cmd==null){
+			handler = new NullHandler();
+		}else if(cmd.equals("blist")){
 			handler = new BListHandler();	//cmd파라미터에 맞는 handler생성
 		}else if(cmd.equals("bwrite")){
 			handler = new BWriteHandler();
 		}else if(cmd.equals("bwriteproc")){
 			handler = new BWriteprocHandler();
-		}else {
+		}else{
 			
 		}
 		
