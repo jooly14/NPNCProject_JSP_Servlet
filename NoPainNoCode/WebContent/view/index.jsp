@@ -8,6 +8,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 <link rel="stylesheet" href="css/common/nav_category.css"/>
+<link rel="stylesheet" href="css/common/header.css"/>
 <title>Insert title here</title>
 <style>
 	*{
@@ -27,17 +28,14 @@
 		justify-content: space-between;
 	}
 </style>
-
-
-
 </head>
-
 <body>
 <div id="wrap">
 	<%@ include file="/view/common/header.jsp" %>
 	<section id="section1">
 	<%@ include file="/view/common/nav_category.jsp" %>
 	</section>
+	<%@ include file="/view/common/footer.jsp" %>
 </div>
 </body>
 </html>

@@ -53,11 +53,11 @@
             color: yellow;
         }
         input[type=submit]{
-           background-color: limegreen;
-           width: 200px;
-           height: 40px;
-           color:white;
-           border: 1px solid lightgray;
+        	background-color: limegreen;
+        	width: 200px;
+        	height: 40px;
+        	color:white;
+        	border: 1px solid lightgray;
         }
     </style>
 </head>
@@ -69,9 +69,9 @@
         <div class="findid">
             <span>회원정보에 등록한 휴대전화번호로 인증</span><br>
             <div class="find phone">
-                <form action="../../member">
+                <form action="../../member" method="post">
                     <table>
-                        <tr>
+						<tr>
                             <td>이름</td>
                             <td><input type="text" name="name"></td>
                         </tr>
@@ -93,7 +93,7 @@
             <hr>
            <span>본인확인 이메일로 인증</span>
             <div class="find email">
-                <form action="../../member">
+                <form action="../../member" method="post">
                     <table>
                         <tr>
                             <td>이름</td>
@@ -114,7 +114,7 @@
                 </form>
             </div>
         </div><br>
-        로그인 | 회원가입
+       <input type="button" value="로그인" > | 회원가입
     </div>
 </body>
 </html>

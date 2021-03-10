@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/view/manage/manage_access_chk.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -68,14 +69,16 @@
 </div>
 	<script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
+		/* 부모창에서 값 가져오기 */
 		var hidx = opener.document.getElementById("hidx").innerText;
 		document.querySelector("input[name='idx']").value =hidx;
-		
 		document.getElementById("maincategory").innerText = opener.document.getElementById("hmaincategory").innerText;
 		document.getElementById("name").innerText = opener.document.getElementById("hname").innerText;
 		document.getElementById("cnt").innerText= opener.document.getElementById("hcnt").innerText;
 		var otb = opener.document.querySelector(".list-table").innerHTML; 
+		/* 여기서부터 jquery */
 		$(function(){
+			/* 부모창의 테이블을 이용해서 카테고리select 생성 */
 			for(var i=1;i<$(otb).children().length-1;i++){
 				var obj1;
 				if($(otb).children().eq(i).children().length==2){
@@ -88,11 +91,13 @@
 				}
 				$("#sel-category").append(obj1);
 			}
+			/* 원래 카테고리를 카테고리select에서 selected되게 함 */
 			for(var i=0;i<$("#sel-category option").length;i++){
 				 if($("#sel-category option")[i].value==hidx){
 					 $("#sel-category").children("option").eq(i).attr("selected",true);
 				 }
 			}
+			/* 변경 버튼을 눌렀을때 기존 카테고리와 다른 경우에만 작동 */
 			$("#chgBtn").click(function(){
 				if($("#sel-category option:selected").val()!=hidx){
 					$("#fm1").submit();

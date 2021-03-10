@@ -4,14 +4,17 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/view/manage/manage_access_chk.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common/nav_category.css"/>
 <link rel="stylesheet" href="css/board/blist.css"/>
+<link rel="stylesheet" href="css/common/header.css"/>
 <style>
 	#sel-category{
 		width:180px;
@@ -42,7 +45,9 @@
 </style>
 </head>
 <body>
+<!-- 게시글 일괄삭제/카테고리 이동 가능한 관리자 페이지 -->
 <div id="wrap">
+	<%@ include file="/view/common/header.jsp" %>
 	<section id="section1">
 		<%@ include file="/view/common/manage_category.jsp" %>
 		<div id="content">
@@ -53,19 +58,22 @@
 				<select id="sel-category">
 				<option value="null-category">전체 글보기</option>
 				<%
-					Map<String,Vector<CDto>> map = (Map<String,Vector<CDto>>)request.getAttribute("clist");
+					/* 카테고리로 select를 만들어줌  */
+					Map<String,Vector<CDto>> map = (Map<String,Vector<CDto>>)request.getAttribute("clist");	//카테고리 리스트를 맵으로 가져옴
+					//키 값에는 카테고리 중 대분류가 들어가 있고 그 안에 카테고리에 대한 데이터가 vector타입으로 들어가 있음
 					for(Map.Entry<String,Vector<CDto>> e :map.entrySet()){
 				%>
 				<optgroup label="<%=e.getKey()%>"></optgroup>
 				<%
 						for(int i=0;i<e.getValue().size();i++){
-							%>
+				%>
 							<option value="<%=e.getValue().get(i).getIdx()%>"><%= e.getValue().get(i).getName()%></option>
-							<%
+				<%
 						}
 					}	
 				%> 
 				</select>
+				<!-- 한페이지 당 보여지는 글 개수 -->
 				<select id="psize">
 					<option value="5" ${pagesize==5?'selected':''}>5개씩</option>
 					<option value="10" ${pagesize==10?'selected':''}>10개씩</option>
@@ -77,6 +85,10 @@
 			</div>
 			<!-- 게시글 테이블 -->
 			<form id="fm1" action="manage?cmd=onepassdel" method="post">
+			<input type="hidden" name="type" value="${type}">
+			<input type="hidden" name="keyword" value="${keyword}">
+			<input type="hidden" name="psize" value="${psize}">
+			<input type="hidden" name="category" value="${category}">
 			<table class="list-table">
 				<tr>
 					<td>글 번호</td>
@@ -118,8 +130,8 @@
 					<a class="abn" href="manage?cmd=blist&page=${start+10}&psize=${pagesize}&type=${type}&keyword=${keyword}&category=${category}">다음 <i class="fas fa-angle-right"></i></a>
 				</c:if>
 			</div>
+			<!-- 검색  -->
 			<div class="search-form">
-				<!-- 검색  -->
 				<form action="manage" method="post">
 					<select name="type">
 						<option value="title" ${empty type || type=='title'?'selected':''}>제목</option>
@@ -134,6 +146,7 @@
 				</form>
 			</div>
 		</div>
+		<!-- 팝업창에서 데이터 찾기 쉬우라고 만들어 놓음 -->
 		<div style="display:none;" id="hidden">
 			<span id="hidx"></span>
 			<span id="htitle"></span>
@@ -142,10 +155,12 @@
 			<span id="hcategory"></span>
 		</div>
 	</section>
-	</div>
+	<%@ include file="/view/common/footer.jsp" %>
+</div>
 	<script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
 	$(function(){
+		/* 한페이지 당 노출되는 게시글 수 변경 시 마다 새로 요청 */
 		$("#psize").change(function(){
 			var category = '${category}';
 			var type = '${type}';
@@ -154,7 +169,8 @@
 			var str ="manage?cmd=blist&type="+type+"&keyword="+keyword+"&category="+category+"&psize="+$("#psize").val();
 			location.href=str;
 		});
-		$("#sel-category").change(function(){
+		/* select 카테고리 변경 시 해당 카테고리에 해당하는 글만 가져오게끔 요청 */
+		$("#sel-category").change(function(){	
 			var category = $(this).val();
 			
 			var type = '${type}';
@@ -165,6 +181,7 @@
 			}
 			location.href=str;
 		});
+		/* 일괄 삭제를 클릭한 경우 선택된 값이 하나 이상이면 삭제진행 여부를 묻고 요청 진행*/
 		$("#fm1_submit").click(function(){
 			if($("input[name='del_idx']:checked").length!=0){
 				if(confirm("정말 일괄 삭제를 진행하시겠습니까?")){
@@ -172,6 +189,7 @@
 				}
 			}
 		});
+		/* 삭제 전체 선택 체크박스를 선택하면 모든 체크박스가 선택되고 해제하면 모두 해제됨*/
 		$("#allchk").change(function(){
 			if($("#allchk").is(":checked")){
 				$("input[name='del_idx']").prop("checked",true);
@@ -179,6 +197,7 @@
 				$("input[name='del_idx']").prop("checked",false);
 			}
 		});
+		/* 게시글 이동 버튼을 누르면 새로운 팝업이 생김. 그 안에서 카테고리를 이동시키고 끝나면 화면 reload */
 		$(".movebtn").click(function(){
 			var move_idx =  $(this).attr("id").substring(4);
 			$("#hidx").text($(this).parent().prev().prev().prev().prev().prev().prev().prev().text());
@@ -189,7 +208,7 @@
 		   	var popup = window.open('view/manage/move_category_pop.jsp', '카테고리 이동', 'top=100px,left=500px,width=600px,height=330px,scrollbars=yes');
 		});
 		
-		/*카테고리 이름 가져오기 */
+		/* 특정 카테고리 게시글을 보여주고 있다면 카테고리select의 값도 해당 카테고리가 선택되게 함*/
 		 var category_idx = $("option[value='${category}']").text();
 		 if(category_idx==""){
 			 $("option[value='null-category']").attr("selected",true);

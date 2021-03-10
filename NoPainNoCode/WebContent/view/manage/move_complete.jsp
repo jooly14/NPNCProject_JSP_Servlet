@@ -28,7 +28,7 @@
 	}
 </style>
 </head>
-<body onunload='opener.location.reload();'>
+<body onunload='opener.location.reload();'><!-- 해당 팝업 창은 닫히면서 부모창을 새로고침 -->
 <div id="wrap">
 	<div id="d1">카테고리 변경이 완료 되었습니다.</div>
 	<input type="button" onclick="window.close()" value="닫기">

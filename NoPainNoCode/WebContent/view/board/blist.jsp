@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,6 +14,7 @@
   />
 <link rel="stylesheet" href="css/board/blist.css"/>
 <link rel="stylesheet" href="css/common/nav_category.css"/>
+<link rel="stylesheet" href="css/common/header.css"/>
 </head>
 <body>
 <div id="wrap">
@@ -46,7 +48,7 @@
 			<c:forEach var="d" items="${dtos}">
 				<tr>
 					<td style="text-align:center">${d.idx}</td>
-					<td><a href="board?cmd=bread&idx=${d.idx}">${d.title} [${d.replyCnt}]</a></td>
+					<td><a class="content-read" href="${d.idx}/${d.category}">${d.title} [${d.replyCnt}]</a></td>
 					<td>${d.id}</td>
 					<td style="text-align:center"><fmt:formatDate value="${d.regdate}" pattern="yyyy.MM.dd"/>   </td>
 					<td style="text-align:center">${d.hit}</td>
@@ -54,8 +56,18 @@
 				</tr>
 			</c:forEach>
 			</table>
-			<c:if test="${sessionScope.id!=null}">
-				<input type="button" value="글쓰기" onclick="location.href = 'board?cmd=bwrite&category=${category}'">
+			<c:if test="${sessionScope.id!=null&&!empty category}">
+				<%
+				for(int i=0;i<categoryList.size();i++){
+					if(Integer.parseInt((String)(request.getAttribute("category")))==categoryList.get(i).getIdx()){
+						if(categoryList.get(i).getWritegrade()>=(Integer)session.getAttribute("grade")){
+				%>
+				<input id="writebtn" class="btn" style="width:100px;margin-left:742px;" type="button" value="글쓰기" onclick="location.href = 'board?cmd=bwrite&category=${category}'">
+				<%
+						}
+					} 
+				}
+				 %>
 			</c:if>
 			<!-- 페이징 -->
 			<div class="paging">
@@ -86,10 +98,13 @@
 			</div>
 		</div>
 	</section>
+	<%@ include file="/view/common/footer.jsp" %>
 </div>
 <script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+	
 	$(function(){
+		/* 한페이지당 노출되는 게시글 개수 변경 */
 		$("#psize").change(function(){
 			var type = '${type}';
 			var keyword = '${keyword}';
@@ -98,7 +113,44 @@
 			var str ="board?cmd=blist&type="+type+"&keyword="+keyword+"&category="+category+"&psize="+$("#psize").val();
 			location.href=str;
 		});
-		 
+		$(".content-read").click(function(e){
+			e.preventDefault();
+			//board?cmd=bread&idx=
+			var href = $(this).attr("href");
+			var readidx = href.substring(0,href.indexOf("/"));
+			var readcategory = href.substring(href.indexOf("/")+1);
+			var tmpcategory;
+			<%
+				for(int i=0;i<categoryList.size();i++){
+					%>
+					tmpcategory = "<%=categoryList.get(i).getIdx() %>";
+					if(tmpcategory == readcategory){
+						readgrade = "<%=categoryList.get(i).getReadgrade() %>";
+						console.log(readgrade);
+					}
+					<%
+				}
+			%>
+			var usergrade= "${empty sessionScope.grade?99:sessionScope.grade}";
+			if(usergrade<=readgrade){
+				location.href = "board?cmd=bread&idx="+readidx;
+			}else{
+				var tmpgName;
+				var tmpGrade;
+				<%
+				HashMap<Integer,String> grades =((HashMap<Integer,String>)request.getAttribute("grades"));
+					for(Map.Entry e: grades.entrySet()){
+						%>
+						tmpGrade = "<%=e.getKey() %>";
+						if(tmpGrade==readgrade){
+							tmpgName = 	"<%=e.getValue() %>";	
+						}
+						<%
+					}
+				%>				
+				alert(tmpgName+" 등급 이상부터 접근 가능합니다.");
+			}
+		});
 		/*카테고리 이름 가져오기 */
 		 var category_idx = $("#cidx-${category}").text();
 		 if(category_idx==""){

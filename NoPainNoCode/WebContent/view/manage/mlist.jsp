@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/view/manage/manage_access_chk.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common/nav_category.css"/>
 <link rel="stylesheet" href="css/board/blist.css"/>
+<link rel="stylesheet" href="css/common/header.css"/>
 <style>
 	.ajax-sel{
 	    width: 80px;
@@ -19,13 +21,14 @@
 </head>
 <body>
 	<div id="wrap">
+	<%@ include file="/view/common/header.jsp" %>
 	<section id="section1">
 		<%@ include file="/view/common/manage_category.jsp" %>
 		<div id="content">
 			<h2 id="category-name">회원 관리</h2>
 			<div class="list-style">
 				<span id="total">${totalcnt}명의 회원</span>
-				<!-- 한페이지당 페이지 노출 개수 -->
+				<!-- 한페이지당 회원 노출 수 -->
 				<select id="psize">
 					<option value="20" ${pagesize==20?'selected':''}>20명씩</option>
 					<option value="50" ${pagesize==50?'selected':''}>50명씩</option>
@@ -36,7 +39,7 @@
 					<option value="500" ${pagesize==500?'selected':''}>500명씩</option>
 				</select>
 			</div>
-			<!-- 게시글 테이블 -->
+			<!-- 회원 테이블 -->
 			<table class="list-table">
 				<tr>
 					<td>아이디</td>
@@ -51,9 +54,9 @@
 					<td style="text-align:center;width:100px;">${d.id}</td>
 					<td style="text-align:center;width:100px;">
 					<select class="ajax-sel">
-					<c:forEach var="g" items="${grades}">
+				<c:forEach var="g" items="${grades}">
 						<option value="${g.key}" ${d.grade==g.key?'selected':''}>${g.value}</option>
-					</c:forEach>
+				</c:forEach>
 					</select>
 					</td>
 					<td style="text-align:center;width:100px;">${d.name}</td><%-- <a href="manage?cmd=bread&idx=${d.idx}"></a> --%>
@@ -93,10 +96,12 @@
 		</div>
 		
 	</section>
-	</div>
+	<%@ include file="/view/common/footer.jsp" %>
+</div>
 <script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	$(function(){
+		/* 회원등급 select값 변경시 비동기식으로 db반영. 관리자가 0명이 되지 않게 막아놓음 */
 		$(".ajax-sel").on('change',ajaxFnc);
 		function ajaxFnc() {
 			var params = "cmd=mgrade&grade="+$(this).val()+"&id="+$(this).parent().prev().text();
@@ -106,6 +111,10 @@
 				data:params,
 				dataType:"json",
 				success:function(data){
+					if(data.sign=="no"){
+						alert("관리자는 한명 이상이여야합니다");
+						location.reload();
+					}
 				},
 				error:function(request,status,error){
 				    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -113,6 +122,7 @@
 
 			});
 		}
+		/* 한페이지당 노출되는 회원수 select 값 변경시 요청 */
 		$("#psize").change(function(){
 			var type = '${type}';
 			var keyword = '${keyword}';

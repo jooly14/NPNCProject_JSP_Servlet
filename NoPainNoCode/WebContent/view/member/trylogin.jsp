@@ -9,23 +9,23 @@
 </head>
 <body>
 <%
-   if(request.getAttribute("id")==null){
+	if(request.getAttribute("id")==null){
 %>
-   <script>
-      alert("정보가 틀렸습니다.");
-      location.href="view/member/login.jsp";
-   </script>
+	<script>
+		alert("정보가 틀렸습니다.");
+		location.href="view/member/login.jsp";
+	</script>
 <%
-   }else{
-      session.setAttribute("id", request.getAttribute("id"));
-      session.setAttribute("pw", request.getAttribute("pw"));
+	}else{
+		session.setAttribute("id", request.getAttribute("id"));
+		session.setAttribute("pw", request.getAttribute("pw"));
+		session.setAttribute("grade", request.getAttribute("grade"));
 %>
-   <script>
-      location.href="board";
-   </script>
+	<script>
+		location.href="board";
+	</script>
 <%
-   }
+	}
 %>
-
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/view/manage/manage_access_chk.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,6 +71,7 @@
 	</form>
 	<script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
+		/* 부모창에서 값 가져와서 넣기 */
 		document.getElementById("idx").innerText= opener.document.getElementById("hidx").innerText;
 		var htitle = opener.document.getElementById("htitle").innerText;
 		var idx = htitle.lastIndexOf("[");
@@ -80,6 +82,8 @@
 		document.getElementById("regdate").innerText= opener.document.getElementById("hregdate").innerText;
 		var hcategory = opener.document.getElementById("hcategory").innerText;
 		document.getElementById("sel-category").innerHTML = opener.document.getElementById("sel-category").innerHTML;
+		/* jquery 사용 */
+		/* 게시글의 본래 카테고리가 select에서 selected되게 하기 위한 코드 */
 		$(function(){
 			var idx2;
 			 for(var i=0;i<$("#sel-category option").length;i++){
@@ -89,7 +93,9 @@
 			}
 			 $("#sel-category").children("option").eq(idx2).attr("selected",true);
 			 $("input[type='hidden']").val($("#idx").text());
+			 $("#sel-category").children("option").eq(0).remove();
 		});
+		/* 변경 버튼을 눌렀을때 기존 카테고리와 값이 다르면 작동 */
 		$("#chgBtn").click(function(){
 			if($("#sel-category option:selected").val()!=hcategory){
 				$("#fm1").submit();

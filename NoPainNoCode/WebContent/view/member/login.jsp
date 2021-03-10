@@ -44,13 +44,14 @@
     </style>
 </head>
 <body>
-   <div class="wrap">
-   <form action="../../member" method="post">
+	<div class="wrap">
+	<form action="../../member" method="post">
         <div class="logo">NAVER</div>
         <input type="text" placeholder="아이디" name="id"><br>
-        <input type="text" placeholder="패스워드" name="pw"><br>
+        <input type="password" placeholder="패스워드" name="pw"><br>
         <input type="submit"  value="로그인"><br>
-   </form>
+        <input type="hidden" name="cmd" value="login">
+	</form>
         <input class="find id" type="button" onclick="location.href='findid.jsp'" value="아이디 찾기">|<input class="find pw" type="button" onclick="location.href='findpw.jsp'" value="비밀번호 찾기">|<input class="leg" type="button" onclick="location.href='leg.jsp'" value="회원 가입">
         <hr>
         푸터푸터푸터푸터
