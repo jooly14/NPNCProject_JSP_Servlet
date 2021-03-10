@@ -39,7 +39,7 @@ public class ManageController extends HttpServlet {
 		
 		if(cmd.equals("blist")){
 			handler = new MBListHandler();	//cmd파라미터에 맞는 handler생성
-			CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
+			CommandHandler clistHandler = new CListHandler();	//카테고리 데이터 불려오려고
 			clistHandler.process(request, response);
 		}else if(cmd.equals("onepassdel")){						//게시글 일괄 삭제
 			handler = new MBDeleteHandler();
@@ -48,11 +48,9 @@ public class ManageController extends HttpServlet {
 			return;
 		}else if(cmd.equals("movecategory")){					//게시글 카테고리 이동
 			handler = new MBMoveCategoryHandler();
-			CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
+			CommandHandler clistHandler = new CListHandler();	//카테고리 데이터 불려오려고
 			clistHandler.process(request, response);
 		}else if(cmd.equals("clist")){							//카테고리 리스트
-			handler = new MGradeHandler();
-			handler.process(request, response);
 			handler = new MCListCntHandler();
 		}else if(cmd.equals("delmainc")){						//메인카테고리 삭제
 			handler = new MCDeleteMainHandler();
@@ -64,20 +62,20 @@ public class ManageController extends HttpServlet {
 			viewpage = handler.process(request, response);
 			response.sendRedirect(viewpage);
 			return;
-		}else if(cmd.equals("addcate")){
+		}else if(cmd.equals("addcate")){						//카테고리 추가
 			handler = new MCAddCategoryHandler();
 			viewpage = handler.process(request, response);
 			response.sendRedirect(viewpage);
 			return;
-		}else if(cmd.equals("moveall")){
+		}else if(cmd.equals("moveall")){						//특정 카테고리의 전체 게시글을 다른 카테고리로 이동
 			handler = new MCMoveCategoryHandler();
-		}else if(cmd.equals("mlist")){
-			handler = new MGradeHandler();
-			handler.process(request, response);
+		}else if(cmd.equals("mlist")){							//회원 리스트
 			handler = new MMListHandler();
 		}
 		
 		viewpage = handler.process(request,response);	//dao 호출 및 필요 기능 실행하고 jsp페이지 받아오기
+		handler = new MGradeHandler();					//회원등급을 알기 위해서
+		handler.process(request, response);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
 		dispatcher.forward(request, response);
 		

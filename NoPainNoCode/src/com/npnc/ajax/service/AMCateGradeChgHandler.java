@@ -14,7 +14,7 @@ public class AMCateGradeChgHandler implements ACommandHandler {
 		JSONObject json = new JSONObject();
 		MgrDao dao = new MgrDao();
 		String idx = request.getParameter("idx");
-		String rw = request.getParameter("rw");
+		String rw = request.getParameter("rw");			//값에 따라서 읽기권한이나 쓰기권한을 변경
 		String grade = request.getParameter("grade");
 		if(rw.equals("r")){
 			rw = "readgrade";

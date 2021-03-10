@@ -32,9 +32,9 @@ public class AjaxController extends HttpServlet {	//ajax처리를 담당할 controller
 		JSONObject json = null;
 		if(cmd.equals("ablist")){			//게시글 조회 밑에 게시글리스트를 보여주기 위한 기능
 			handler = new ABListHandler();	//cmd파라미터에 맞는 handler생성
-		}else if(cmd.equals("mgrade")){
+		}else if(cmd.equals("mgrade")){				//회원등급 변경
 			handler = new AMGradeChangeHandler();
-		}else if(cmd.equals("mcategrade")){
+		}else if(cmd.equals("mcategrade")){			//카테고리 읽기권한, 쓰기권한 변경
 			handler = new AMCateGradeChgHandler();
 		}
 		json = handler.process(request, response);	//json을 반환 받아서

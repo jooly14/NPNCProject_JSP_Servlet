@@ -19,6 +19,7 @@ public class MBDeleteHandler implements CommandHandler{
 		String psize = request.getParameter("psize");
 		String category = request.getParameter("category");
 		String del_idxs ="";
+//		일괄 삭제이므로 받아온 여러개의 글 번호 값을 정리해서 dao에 전달
 		for(int i=0;i<del_idxArr.length;i++){
 			if(i==0){
 				del_idxs = del_idxArr[i];
@@ -27,16 +28,16 @@ public class MBDeleteHandler implements CommandHandler{
 		}
 		int result = dao.onepassDelete(del_idxs);
 		String sendUrl = "manage?cmd=blist";
-		if(type!=null){
+		if(type!=null&&!type.isEmpty()){
 			sendUrl += "&type="+type;
 		}
-		if(keyword!=null){
+		if(keyword!=null&&!keyword.isEmpty()){
 			sendUrl += "&keyword="+keyword;
 		}
-		if(psize!=null){
+		if(psize!=null&&!psize.isEmpty()){
 			sendUrl += "&psize="+psize;
 		}
-		if(category!=null){
+		if(category!=null&&!category.isEmpty()){
 			sendUrl += "&category="+category;
 		}
 		return sendUrl;

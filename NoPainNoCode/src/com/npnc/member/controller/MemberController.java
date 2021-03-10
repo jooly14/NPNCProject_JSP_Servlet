@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.npnc.board.service.BListHandler;
 import com.npnc.board.service.CommandHandler;
 import com.npnc.category.service.CListHandler;
+import com.npnc.member.service.MChangePwHandler;
 import com.npnc.member.service.MFindIdHandeler;
+import com.npnc.member.service.MFindPwHandler;
 import com.npnc.member.service.MLegHandler;
 import com.npnc.member.service.MLoginHandler;
 import com.npnc.member.service.MLogoutHandler;
@@ -39,6 +40,10 @@ public class MemberController extends HttpServlet {
 			return;
 		}else if(cmd.equals("findid")){
 			handler = new MFindIdHandeler();	//cmd파라미터에 맞는 handler생성
+		}else if(cmd.equals("findpw")){
+			handler = new MFindPwHandler();	//cmd파라미터에 맞는 handler생성
+		}else if(cmd.equals("changepw")){
+			handler = new MChangePwHandler();	//cmd파라미터에 맞는 handler생성
 		}else {
 			
 		}

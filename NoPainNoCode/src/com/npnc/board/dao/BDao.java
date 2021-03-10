@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -99,16 +100,16 @@ public class BDao {	//게시글 관련 DAO
 	}
 	
 	// 게시글 쓰기 
-	public int insert(String category, String title, String content) {
+	public int insert(String id, String category, String title, String content, String file) {
 		
 		try {
 			getConnection();
 			String sql = "insert into board values(null, ?, ?, ?, default, default, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title);
-			pstmt.setString(2, "IDtest"); // session.getAttribute("logindata");로 로그인된 아이디 받아와야함 
+			pstmt.setString(2, id); // session.getAttribute("logindata");로 로그인된 아이디 받아와야함 
 			pstmt.setString(3, content);
-			pstmt.setString(4, "FILEtest"); // 첨부파일 자리 
+			pstmt.setString(4, file); // 첨부파일 자리
 			pstmt.setInt(5, Integer.parseInt(category));
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -130,7 +131,7 @@ public class BDao {	//게시글 관련 DAO
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void getConnection(){
 		try {
 			conn = dataSource.getConnection();

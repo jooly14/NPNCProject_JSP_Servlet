@@ -29,6 +29,30 @@ public class MgrDao {	//게시글 관련 DAO
 	int result;
 	
 	DataSource dataSource = null;
+	
+//	관리자가 0명이 되는 것을 막기위해서	회원등급 변경이 일어나는 경우에 사용
+	public String getManagerCnt() {
+		getConnection();
+		String sql = "SELECT id,COUNT(usergrade) FROM member GROUP BY usergrade HAVING usergrade =0";
+		String id = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				result = rs.getInt(2);
+				if(result==1){
+					id = rs.getString(1);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			freeConnection();
+		}
+		return id;
+	}
+//	카테고리의 읽기권한 , 쓰기권한을 변경
 	public int cateGradeChg(int idx, String rw,int grade) {
 		getConnection();
 		String sql = "update category set "+rw+" = ? where idx = ?";
@@ -45,7 +69,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
-	
+//	회원등급 변경
 	public int chgMemGrade(String id, int grade) {
 		getConnection();
 		String sql = "update member set usergrade = ? where id = ?";
@@ -62,7 +86,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
-	
+//	회원등급 테이블 가져오기
 	public HashMap<Integer, String> getGradeList() {
 		HashMap<Integer, String> map = new HashMap<>();
 		getConnection();
@@ -81,6 +105,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return map;
 	}
+//	회원 테이블 데이터 가져오기
 	public Vector<MDto> getMemberList(MMListHandler handler,String type,String keyword, int page, int pagesize) {
 		Vector<MDto> dtos = new Vector<>();
 		getConnection();
@@ -108,7 +133,7 @@ public class MgrDao {	//게시글 관련 DAO
 				dto.setGrade(rs.getInt(8));
 				dtos.add(dto);
 			}
-			getTotalCnt(handler);	//전체 게시글 개수
+			getTotalCnt(handler);	//전체 회원수 개수
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -118,7 +143,7 @@ public class MgrDao {	//게시글 관련 DAO
 		return dtos;
 	}
 	
-	//전체 게시글 개수를 가져오기
+	//전체 회원수 개수를 가져오기
 		public void getTotalCnt(MMListHandler handler){
 			PreparedStatement pstmt2 = null;
 			ResultSet rs2 = null;
@@ -143,7 +168,7 @@ public class MgrDao {	//게시글 관련 DAO
 			}
 		}
 	
-	
+//	특정카테고리에 속한 전체게시글을 다른 카테고리로 이동
 	public int moveAllCategory(int old, int newCategory) {
 		getConnection();
 		String sql = "update board set category = ? where category = ?";
@@ -160,6 +185,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
+//	카테고리 추가
 	public int addCategory(CDto dto ,String maincategory) {
 		getConnection();
 		String sql = "insert into category values(null,?,?,?,?)";
@@ -178,7 +204,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
-	
+//	카테고리 삭제
 	public int deleteCategory(int idx) {
 		getConnection();
 		String sql = "delete from category where idx = ?";
@@ -194,6 +220,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
+//	메인카테고리 삭제
 	public int deleteMainCategory(String maincategory) {
 		getConnection();
 		String sql = "delete from category where maincategory = ?";
@@ -209,7 +236,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
-	
+//	카테고리 리스트 가져오기(카테고리 당 게시글 개수도 가져옴)
 	public Map<String, Vector<CDto>> getCategoryList(MCListCntHandler handler) {
 		Map<String, Vector<CDto>> map = new HashMap<String, Vector<CDto>>();
 		Map<Integer, Integer> cntMap = new HashMap<>();
@@ -244,7 +271,7 @@ public class MgrDao {	//게시글 관련 DAO
 		handler.setCntMap(cntMap);
 		return map;
 	}
-	
+//	한번에 여러개 게시글 삭제
 	public int onepassDelete(String del_idxs) {
 		getConnection();
 		String sql = "delete from board where idx in("+del_idxs+")";
@@ -259,6 +286,7 @@ public class MgrDao {	//게시글 관련 DAO
 		}
 		return result;
 	}
+//	특정 게시글의 카테고리 이동
 	public int moveCategory(int idx, int category) {
 		getConnection();
 		String sql = "update board set category = ? where idx = ? ";

@@ -15,7 +15,13 @@ public class AMGradeChangeHandler implements ACommandHandler {
 		MgrDao dao = new MgrDao();
 		String id = request.getParameter("id");
 		String grade = request.getParameter("grade");
-		dao.chgMemGrade(id, Integer.parseInt(grade));
+		String chkId =dao.getManagerCnt();			//관리자가 1명 밖에 없다면 해당 관리자의 아이디를 받아옴
+		if(chkId.equals(id)){						//1명 밖에 안 남은 관리자의 회원등급을 변경하고자 하는 경우 변경 취소
+			json.put("sign", "no");
+		}else{
+			int result = dao.chgMemGrade(id, Integer.parseInt(grade));
+			json.put("sign", "yes");
+		}
 		return json;
 	}
 
