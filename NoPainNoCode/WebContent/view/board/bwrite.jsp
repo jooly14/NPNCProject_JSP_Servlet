@@ -6,10 +6,10 @@
 <%	/* 로그인 하지 않고 접근 시 제한 */
 	if(session.getAttribute("id")==null){
 		%>
-		<script>
-			alert("잘못된 접근입니다");
-			history.back();
-		</script>
+	<script>
+		alert("잘못된 접근입니다");
+		history.back();
+	</script>
 		<%
 	}
 %>
@@ -47,6 +47,7 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 		<td>
 			<select name="category">
 			<%
+				if(session.getAttribute("grade")!=null){
 				boolean readGrade = false;
 				for(Map.Entry<String,Vector<CDto>> e :map2.entrySet()){		// 카테고리 목록 불러오기 
 					for(int i=0;i<e.getValue().size();i++){
@@ -74,6 +75,7 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 					</script>
 					<%
 				}
+				}
 			%>
 			</select>
 		</td>
@@ -83,7 +85,7 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 	</tr>
 	<tr>
 		<td>
-			<textarea rows="40" cols="60" name="content"> 
+			<textarea style="resize: none;" rows="40" cols="60" name="content"> 
 				
 ※ 게시글 양식 삭제/임의 변경 불가! (위반 시 제재)
 

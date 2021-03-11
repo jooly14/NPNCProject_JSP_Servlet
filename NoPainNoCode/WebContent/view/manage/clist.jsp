@@ -92,7 +92,6 @@
 								<option value="${g.key}" ${writeg==g.key?'selected':''}>${g.value}</option>
 							</c:if>
 						</c:forEach>
-						<option value="99" ${writeg==99?'selected':''}>전체공개</option>
 						</select>
 						</td>
 						<td style="text-align:center;width:70px;"><%= ((HashMap<Integer,Integer>)request.getAttribute("cnt")).get(e.getValue().get(i).getIdx())%></td>
@@ -170,9 +169,11 @@
 				}
 					td22.children().eq(0).append(op1);
 					var op2 =  op1.clone();
-					td23.children().eq(0).append(op2);
+					if(!(op2.val()=='99')){
+						td23.children().eq(0).append(op2);
+					}
 			</c:forEach>
-			
+			td23.children().eq(0).children().last().attr("selected",true);
 			td1.append(h1);
 			tr1.append(td1);
 			tr1.append(td2);
@@ -213,13 +214,18 @@
 				var key1 = '${e.key}';
 				op1.text(value1);
 				op1.val(key1);
-				if(key1=='1'){
+				if(key1=='100'){
 					op1.attr("selected",true);
+					op1.val("99");
+					op1.text("전체공개");
 				}
-				td22.children().eq(0).append(op1);
-				var op2 =  op1.clone();
-				td23.children().eq(0).append(op2);
+					td22.children().eq(0).append(op1);
+					var op2 =  op1.clone();
+					if(!(op2.val()=='99')){
+						td23.children().eq(0).append(op2);
+					}
 			</c:forEach>
+			td23.children().eq(0).children().last().attr("selected",true);
 			tr1.append(td1);
 			tr1.append(td2);
 			tr1.append(td22);

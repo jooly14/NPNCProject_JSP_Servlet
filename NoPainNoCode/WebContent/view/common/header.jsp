@@ -17,6 +17,7 @@
 	<div>
 		<span style="font-size:14px;">${sessionScope.id}님</span>
 		<span style="font-size:14px;"><%=((HashMap<Integer,String>)request.getAttribute("grades")).get(session.getAttribute("grade")) %></span>
+		<input type="button" value="마이페이지" onclick="location.href='view/member/mypage.jsp?id=${sessionScope.id}'">
 		<input type="button" value="로그아웃" onclick="location.href='member?cmd=logout'">
 	</div>	
 	<%

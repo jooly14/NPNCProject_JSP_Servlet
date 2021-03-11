@@ -22,7 +22,9 @@
 		border-radius:0;
 		padding-left:4px;
 		border: 1px solid lightgray;
-		margin-left:520px;
+	}
+	#total{
+		width:580px;
 	}
 	.movebtn , #fm1_submit{
 		width:50px;

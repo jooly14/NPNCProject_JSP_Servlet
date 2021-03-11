@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 <body>
 ajax테스트 페이지<br>
 본래 글 읽기 페이지 될 위치<br>
-	<div id="result">
+	<div id="result-list">
 		
 	</div>
 	<script  src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -42,7 +42,7 @@ ajax테스트 페이지<br>
 					data:params,
 					dataType:"json",
 					success:function(data){
-						$("#result").html("");							//기존에 있던 값 없애기
+						$("#result-list").html("");							//기존에 있던 값 없애기
 						var pagesize = data.pagesize;
 						var rownum = data.rownum;
 						var startRownum = data.startRownum;
@@ -74,7 +74,7 @@ ajax테스트 페이지<br>
 							tr.append(td4);
 							table.append(tr);
 						}
-						$("#result").append(table);
+						$("#result-list").append(table);
 						var div1 = $("<div></div>");					//페이징 생성
 						if(start>1){
 							var a3 = $("<a class='btn' style='cursor:pointer;'>이전</a>");
@@ -95,7 +95,7 @@ ajax테스트 페이지<br>
 							var a3 = $("<a class='btn' style='cursor:pointer;'>다음</a>");
 							div1.append(a3);
 						}
-						$("#result").append(div1);
+						$("#result-list").append(div1);
 						
 					},
 					error:function(request,status,error){

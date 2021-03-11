@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@page import="com.npnc.board.dao.BDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,6 +17,10 @@
 	//out.println(path);
 	//   /Users/mac/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/DBProject/
 	// upload라는 폴더 만들고, getRealPath("/upload")로 지정
+	File file2 = new File(path);
+	if(!file2.isDirectory()){
+		file2.mkdir();
+	}
 	
 	int maxSize = 1024*1024*10; // 10메가 
 	String enc = "utf-8";
@@ -44,7 +49,7 @@
 	
 	BDao dao = new BDao();
 	dao.insert(id, category, title, content, file);
-	response.sendRedirect("http://localhost:8080/NoPainNoCode/board?cmd=blist&category="+category); // 내가 쓴 페이지 읽기로 이동 
+	response.sendRedirect(request.getContextPath()+"/board?cmd=blist&category="+category); // 내가 쓴 페이지 읽기로 이동 
 %>
 	<%--TESTCODE <%= category %><br>
 	<%= title %><br>
