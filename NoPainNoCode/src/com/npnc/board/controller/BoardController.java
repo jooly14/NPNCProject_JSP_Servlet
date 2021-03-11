@@ -36,13 +36,12 @@ public class BoardController extends HttpServlet {
 		
 		CommandHandler handler = null;
 		if(cmd == null){
-			handler = new NullHandler();
+			handler = new BListHandler();
 		}else if(cmd.equals("blist")){
 			handler = new BListHandler();	//cmd파라미터에 맞는 handler생성
 		}else if(cmd.equals("bwrite")){
 			handler = new BWriteHandler();
 		}else {
-			
 		}
 		viewpage = handler.process(request,response);	//dao 호출 및 필요 기능 실행하고 jsp페이지 받아오기
 		handler = new MGradeHandler();					//회원등급을 알기 위해서

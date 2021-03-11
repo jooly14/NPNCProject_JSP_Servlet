@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.npnc.board.service.CommandHandler;
 import com.npnc.category.service.CListHandler;
 import com.npnc.member.service.MChangePwHandler;
+import com.npnc.member.service.MDelmemberHandler;
 import com.npnc.member.service.MFindIdHandeler;
 import com.npnc.member.service.MFindPwHandler;
 import com.npnc.member.service.MLegHandler;
 import com.npnc.member.service.MLoginHandler;
 import com.npnc.member.service.MLogoutHandler;
+import com.npnc.member.service.MInfoUpdateHandler;
 
 @WebServlet("/member")
 public class MemberController extends HttpServlet {
@@ -32,18 +34,28 @@ public class MemberController extends HttpServlet {
 		if(cmd.equals("leg")){
 			handler = new MLegHandler();	//cmd파라미터에 맞는 handler생성
 		}else if(cmd.equals("login")){
-			handler = new MLoginHandler();	//cmd파라미터에 맞는 handler생성
+			handler = new MLoginHandler();	
 		}else if(cmd.equals("logout")){
 			handler = new MLogoutHandler();
 			handler.process(request, response);
 			response.sendRedirect("board");
 			return;
+		}else if(cmd.equals("update")){
+			handler = new MInfoUpdateHandler();
+			viewpage = handler.process(request, response);
+			response.sendRedirect(viewpage);
+			return;
+		}else if(cmd.equals("delmember")){
+			handler = new MDelmemberHandler();	
+			viewpage = handler.process(request, response);
+			response.sendRedirect(viewpage);
+			return;
 		}else if(cmd.equals("findid")){
-			handler = new MFindIdHandeler();	//cmd파라미터에 맞는 handler생성
+			handler = new MFindIdHandeler();	
 		}else if(cmd.equals("findpw")){
-			handler = new MFindPwHandler();	//cmd파라미터에 맞는 handler생성
+			handler = new MFindPwHandler();	
 		}else if(cmd.equals("changepw")){
-			handler = new MChangePwHandler();	//cmd파라미터에 맞는 handler생성
+			handler = new MChangePwHandler();	
 		}else {
 			
 		}

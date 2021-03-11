@@ -1,7 +1,6 @@
 package com.npnc.member.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +18,70 @@ public class MDao {   //회원 관련 DAO
    int result;
    
    DataSource dataSource = null;
-
+   
+   public int delmember(String id){
+	   try {
+	         getConnection();
+	         String query="delete from member where id=?";
+	         pstmt=conn.prepareStatement(query);
+	         pstmt.setString(1, id);	         
+	         result=pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         freeConnection();
+	      }
+	   
+	   return result;
+   }
+   
+   public MDto viewInfo(String id){
+	   MDto dto = new MDto();
+		try {
+			getConnection();
+			String sql = "select * from member where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){				
+				dto.setId(rs.getString(1));
+				dto.setPw(rs.getString(2));
+				dto.setName(rs.getString(3));
+				dto.setEmail(rs.getString(5));
+				dto.setAddress(rs.getString(6));
+				dto.setPhonenum(rs.getString(7));
+				dto.setGrade(rs.getInt(8));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			freeConnection();
+		}
+		return dto;
+	}
+   
+   public int Mypage(String id,String pw,String name,String idnum,String email,String address,String phonenum) { // DB에 들어가면 1 반환, 안들어가면 0 반환
+	      try {
+	         getConnection();
+	         String query="update member set pw=? , email=? , address=?, phonenum=? where id=?";
+	         pstmt=conn.prepareStatement(query);
+	         
+	         pstmt.setString(1, pw);
+	         pstmt.setString(2, email);
+	         pstmt.setString(3, address);
+	         pstmt.setString(4, phonenum);
+	         pstmt.setString(5, id);	         
+	         result=pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         freeConnection();
+	      }
+	      return result;
+	   }
+   
    public int changePw(String pw,String id) {
          try {
             getConnection();
