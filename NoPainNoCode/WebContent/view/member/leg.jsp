@@ -36,11 +36,17 @@
             background-color: limegreen;
             color: white;
         }
+        a{
+            font-size: 2em;
+            font-weight: bold;
+            color: limegreen;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <span class="naver">NAVER</span><br>
+        <span class="naver"><a href="../../board">CAFE NAME</a></span><br><br>
         <div class="content">
             <form action="../../member">
                 <span class="name">아이디</span><br>

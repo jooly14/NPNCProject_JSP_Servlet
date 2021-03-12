@@ -104,14 +104,14 @@
 				</tr>
 			<c:forEach var="d" items="${dtos}">
 				<tr>
-					<td style="text-align:center">${d.idx}</td>
+					<td style="text-align:center;width:80px;">${d.idx}</td>
 					<td>${d.title} [${d.replyCnt}]</td><%-- <a href="manage?cmd=bread&idx=${d.idx}"></a> --%>
-					<td>${d.id}</td>
-					<td style="text-align:center"><fmt:formatDate value="${d.regdate}" pattern="yyyy.MM.dd"/>   </td>
-					<td style="text-align:center">${d.hit}</td>
-					<td style="text-align:center">${d.good}</td>
-					<td style="text-align:center"><input type="checkbox" name="del_idx" value="${d.idx}"></td>
-					<td style="text-align:center"><input type="button" class="movebtn" id="btn-${d.idx}"value="이동"><span style="display:none">${d.category}</span></td>
+					<td style="text-align:center;width:80px;">${d.id}</td>
+					<td style="text-align:center;width:80px;"><fmt:formatDate value="${d.regdate}" pattern="yyyy.MM.dd"/>   </td>
+					<td style="text-align:center;width:50px;">${d.hit}</td>
+					<td style="text-align:center;width:60px;">${d.good}</td>
+					<td style="text-align:center;width:60px;"><input type="checkbox" name="del_idx" value="${d.idx}"></td>
+					<td style="text-align:center;width:70px;"><input type="button" class="movebtn" id="btn-${d.idx}"value="이동"><span style="display:none">${d.category}</span></td>
 				</tr>
 			</c:forEach>
 			</table>

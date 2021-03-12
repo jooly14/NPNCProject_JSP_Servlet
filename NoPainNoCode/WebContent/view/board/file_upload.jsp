@@ -12,6 +12,8 @@
 </head>
 <body>
 <%
+
+
 	//실제 파일이 업로들 될 폴더명 
 	String path = getServletContext().getRealPath("/upload");
 	//out.println(path);
@@ -47,9 +49,38 @@
 	String originFile1 = mrequest.getOriginalFileName("file");
 	
 	
+	System.out.println("======= 디버깅 확인 === file_uplost === 디버깅 확인 =========");
+	System.out.println("카테고리 : " + category);
+	System.out.println("제목 : " + title);
+	System.out.println("내용 : " + content);
+	System.out.println("아이디 : " + id);
+	System.out.println("파일명 : " + file);
+	
+	
+	/*
+	- 글쓰기를 통해 들어오면 true, 글수정을 통해 들어오면 false
+	- true면 dao의 글쓰기 메서드 호출
+	- false면 dao의 글수정 메서드 호출
+	*/ 
+	int isWrite = Integer.parseInt(mrequest.getParameter("isWrite"));
+	System.out.println("넘어온 bool값 : " + isWrite);
+	
+	
 	BDao dao = new BDao();
-	dao.insert(id, category, title, content, file);
-	response.sendRedirect(request.getContextPath()+"/board?cmd=blist&category="+category); // 내가 쓴 페이지 읽기로 이동 
+	
+	if(isWrite > 0){
+		//글쓰기로 들어올때 실행.
+		
+		dao.insert(id, category, title, content, file);
+		response.sendRedirect(request.getContextPath()+"/board?cmd=blist&category="+category); // 내가 쓴 페이지 읽기로 이동 
+	} else {
+		//글수정으로 들어올때 실행.
+		int idx = Integer.parseInt(mrequest.getParameter("idx"));
+		
+		dao.updateArticle(title, content, idx);
+		response.sendRedirect(request.getContextPath()+"/board?cmd=bread&idx="+idx); // 내가 수정한 글로 이동 
+	}
+	
 %>
 	<%--TESTCODE <%= category %><br>
 	<%= title %><br>

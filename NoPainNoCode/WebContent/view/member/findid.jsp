@@ -59,6 +59,14 @@
         	color:white;
         	border: 1px solid lightgray;
         }
+        .goto{
+        	width: 100px;
+            padding: 0;
+            background-color: white;
+            border: none;
+            color: grey;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -113,8 +121,8 @@
                     <input type="submit" value="아이디 찾기">
                 </form>
             </div>
-        </div><br>
-       <input type="button" value="로그인" > | 회원가입
+        </div><br><br>
+       <input class="goto login"type="button" value="로그인" onclick="location.href='login.jsp'"> | <input class="goto leg" type="button" value="회원가입" onclick="location.href='leg.jsp'">
     </div>
 </body>
 </html>

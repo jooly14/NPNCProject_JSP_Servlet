@@ -32,26 +32,33 @@
 
 </head>
 <body>
+
 <div id="wrap">
 <%@ include file="/view/common/header.jsp" %>
+
 <section id="section1">
 <%@ include file="/view/common/nav_category.jsp" %>
+
+
 <%
 Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("clist");	// 카테고리 목록 불러오기 
-
 %>
-<!--  method="post" enctype="multipart/form-data" -->
+
 <form action="view/board/file_upload.jsp" method="post" enctype="multipart/form-data">
 <table>
 	<tr>
 		<td>
 			<select name="category">
+			
 			<%
 				if(session.getAttribute("grade")!=null){
 				boolean readGrade = false;
+				
+				
 				for(Map.Entry<String,Vector<CDto>> e :map2.entrySet()){		// 카테고리 목록 불러오기 
 					for(int i=0;i<e.getValue().size();i++){
-						for(int j=0;j<categoryList.size();j++){
+						
+						for(int j = 0 ; j < categoryList.size() ; j++){
 							if(categoryList.get(j).getIdx()==e.getValue().get(i).getIdx()){
 								if(((Integer)session.getAttribute("grade")) <= categoryList.get(j).getWritegrade()){
 									/* 유저의 회원등급과 카테고리의 쓰기 권한을 비교해서 쓸 수 있는 카테고리만 보여줌 */
@@ -74,7 +81,7 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 						history.back();
 					</script>
 					<%
-				}
+					}
 				}
 			%>
 			</select>
@@ -85,7 +92,7 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 	</tr>
 	<tr>
 		<td>
-			<textarea style="resize: none;" rows="40" cols="60" name="content"> 
+			<textarea rows="40" cols="60" name="content" style="resize: none;"> 
 				
 ※ 게시글 양식 삭제/임의 변경 불가! (위반 시 제재)
 
@@ -183,13 +190,18 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 			</textarea>
 		</td>
 	</tr>
+	
+	
 	<tr>
 		<td>
 			<input type="file" name="file">
 		</td>
 	</tr>
+	
+	
 	<tr>
 		<td>
+			<input type="hidden" name="isWrite" value="1">
 			<input type="hidden" name="id" value="<%= session.getAttribute("id") %>">
 		</td>
 	</tr>
@@ -201,7 +213,10 @@ Map<String,Vector<CDto>> map2 = (Map<String,Vector<CDto>>)request.getAttribute("
 	
 </form>
 </section>
+
 </div>
+
+
 <script  src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 /* 특정 카테고리에서 게시글 쓰기를 선택한 경우 카테고리select의 값도 해당 카테고리가 선택되게 함*/
