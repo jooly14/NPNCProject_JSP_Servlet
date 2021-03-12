@@ -5,10 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.sql.Types;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 
 import javax.naming.InitialContext;
@@ -16,11 +12,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.npnc.board.dto.BDto;
+import com.npnc.board.dto.RDto;
 import com.npnc.board.service.BListHandler;
-import com.npnc.board.service.CommandHandler;
 import com.npnc.category.dto.CDto;
 
-public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
+public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -28,17 +24,17 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 	
 	DataSource dataSource = null;
 	
-	//°Ô½ÃÆÇ ¸®½ºÆ® °¡Á®¿À±â
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Vector<BDto> getList(BListHandler handler,String type,String keyword,String category2, int page, int pagesize){
-		//gobÅ×ÀÌºí°ú left outer joinÀ¸·Î ÁÁ¾Æ¿ä °³¼ö¸¦ °¡Á®¿À°í replyÅ×ÀÌºí°ú left outer joinÀ¸·Î ´ñ±Û °³¼ö¸¦ °°ÀÌ °¡Á®¿È
+		//gobï¿½ï¿½ï¿½Ìºï¿½ï¿½ left outer joinï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ replyï¿½ï¿½ï¿½Ìºï¿½ï¿½ left outer joinï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = "select SQL_CALC_FOUND_ROWS b.*, good.cnt AS good, reply.repcnt AS repcnt FROM board as b LEFT outer join (SELECT idx,gob,COUNT(id) AS cnt FROM gob GROUP BY idx, gob HAVING gob = true) AS good ON b.idx = good.idx left outer join (SELECT bidx, COUNT(bidx) AS repcnt FROM reply GROUP BY bidx) AS reply ON b.idx = reply.bidx";
-		if(category2!=null&&!category2.isEmpty()){	//Ä«Å×°í¸®¸¦ µû·Î Á¤ÇÏÁö ¾ÊÀ¸¸é ÀüÃ¼ °Ô½Ã±ÛÀ» °¡Á®¿Àµµ·Ï 
+		if(category2!=null&&!category2.isEmpty()){	//Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			sql = sql + " where category = " + category2;
-			if(type!=null&&!type.isEmpty()){		//°Ë»ö
+			if(type!=null&&!type.isEmpty()){		//ï¿½Ë»ï¿½
 				sql= sql + " and "+type+" like '%" +keyword+"%'" ;
 			}
 		}else{
-			if(type!=null&&!type.isEmpty()){		//°Ë»ö
+			if(type!=null&&!type.isEmpty()){		//ï¿½Ë»ï¿½
 				sql= sql + " where "+type+" like '%" +keyword+"%'" ;
 			}
 		}
@@ -64,7 +60,7 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 				BDto dto = new BDto(idx, title, id, content, regDate, hit, file, category, good, 0, null, replyCnt);
 				dtos.add(dto);
 			}
-			getTotalCnt(handler);	//ÀüÃ¼ °Ô½Ã±Û °³¼ö
+			getTotalCnt(handler);	//ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,7 +70,7 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 		return dtos;
 	}
 	
-	//ÀüÃ¼ °Ô½Ã±Û °³¼ö¸¦ °¡Á®¿À±â
+	//ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void getTotalCnt(BListHandler handler){
 		PreparedStatement pstmt2 = null;
 		ResultSet rs2 = null;
@@ -99,7 +95,7 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 		}
 	}
 	
-	// °Ô½Ã±Û ¾²±â 
+	// ê²Œì‹œê¸€ ì…ë ¥
 	public int insert(String id, String category, String title, String content, String file) {
 		
 		try {
@@ -107,9 +103,9 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 			String sql = "insert into board values(null, ?, ?, ?, default, default, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title);
-			pstmt.setString(2, id); // session.getAttribute("logindata");·Î ·Î±×ÀÎµÈ ¾ÆÀÌµğ ¹Ş¾Æ¿Í¾ßÇÔ 
+			pstmt.setString(2, id); // session.getAttribute("logindata");ï¿½ï¿½ ï¿½Î±ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ş¾Æ¿Í¾ï¿½ï¿½ï¿½ 
 			pstmt.setString(3, content);
-			pstmt.setString(4, file); // Ã·ºÎÆÄÀÏ ÀÚ¸®
+			pstmt.setString(4, file); // Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½
 			pstmt.setInt(5, Integer.parseInt(category));
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -120,6 +116,253 @@ public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 		}
 		return result;
 	}
+	
+	
+	//ê²Œì‹œê¸€ ìˆ˜ì •
+	public int updateArticle(String title, String content, int idx) {
+		
+		try {
+			getConnection();
+			String sql = "UPDATE board SET title = ? , content = ? WHERE idx = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, idx);
+			result = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		
+		
+		
+		return result;
+	}
+	
+	
+	//ê²Œì‹œê¸€ ì½ê¸°
+	public Vector getArticle(int idx) {
+		Vector<BDto> v = new Vector();
+		
+		String sql = "select b.title, b.id, b.regDate, b.content, b.hit,"+
+				"count(case when g.gob = 1 then 1 END) AS good,"+
+				"count(case when g.gob = 0 then 0 END) AS bad"+
+				" from board as b"+
+				" inner JOIN gob AS g"+
+				" ON b.idx = g.idx"+
+				" WHERE b.idx = ?";
+		
+		try {
+			getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String title = rs.getString("title");
+				String id = rs.getString("id");
+				Timestamp regDate = rs.getTimestamp("regDate");
+				String content =rs.getString("content");
+				int hit = rs.getInt("hit");
+				int good = rs.getInt("good");
+				int bad = rs.getInt("bad");
+				
+				BDto dto = new BDto();
+				
+				dto.setIdx(idx);
+				dto.setTitle(title);
+				dto.setId(id);
+				dto.setRegdate(regDate);
+				dto.setContent(content);
+				dto.setHit(hit);
+				dto.setGood(good);
+				dto.setBad(bad);
+				
+				v.add(dto);
+			}
+			
+		}catch(Exception e) {
+			
+		}finally {
+			freeConnection();
+		}
+		return v;
+	}
+		
+	//ì¹´í…Œê³ ë¦¬ì œëª© ê°€ì ¸ì˜¤ê¸°
+	public Vector getBoardTitle(int idx) {
+		
+		Vector<CDto> v = new Vector();
+		
+		String sql = "SELECT c.idx, c.NAME FROM category AS c INNER JOIN board AS b ON b.category = c.idx WHERE b.idx = ?";
+		
+		try {
+			getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				CDto dto = new CDto();
+				
+				dto.setIdx(Integer.parseInt(rs.getString("idx")));
+				dto.setName(rs.getString("NAME"));
+				
+				v.add(dto);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		return v;
+	}
+		
+	
+	//ê²Œì‹œê¸€ ì‚­ì œ
+	public int deleteArticle(int idx) {
+		
+		String sql = "DELETE FROM board WHERE idx = ?";
+		
+		try {
+			getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		
+		
+		return result;
+	}
+	
+	
+	//ëŒ“ê¸€ ê°€ì ¸ì˜¤ê¸°
+	public Vector<RDto> getReply(int bidx){
+		Vector<RDto> v = new Vector();
+		
+		String sql = "select * from reply where bidx = ?";
+		
+		getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bidx);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int ridx = rs.getInt(1);				//ëŒ“ê¸€ idx
+				String id = rs.getString(3);			//ì‘ì„±ì ì•„ì´ë””
+				String rContent = rs.getString(4);		//ëŒ“ê¸€ ë‚´ìš©
+				Timestamp regDate = rs.getTimestamp(5);	//ëŒ“ê¸€ ì‘ì„±ì¼ì
+				
+				RDto rdto = new RDto(ridx, bidx, id, rContent, regDate);
+				
+				v.add(rdto);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		
+		
+		return v;
+	}
+	
+	//ì¢‹ì•„ìš”, ì‹«ì–´ìš”
+	public int upGob(int idx, String id, boolean gob){
+		String sql = "INSERT INTO gob VALUES(?,?,?)";
+		
+		getConnection();
+		
+		try {
+			
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.setString(2, id);
+			pstmt.setBoolean(3, gob);
+			
+			
+			result = pstmt.executeUpdate();
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			//ì´ë¯¸ ì¢‹ì•„ìš”orì‹«ì–´ìš” í•œ ì  ìˆìœ¼ë©´ 0
+			result = 0;
+		}finally {
+			freeConnection();
+		}
+		
+		System.out.println("ì¢‹ì•„ìš” ê²°ê³¼ : " + result);
+		
+		return result;
+	}
+	
+	//ëŒ“ê¸€ì…ë ¥
+	public int insertReply(int bidx, String id, String reply) {
+		
+		
+		String sql = "INSERT INTO reply VALUES(NULL,?,?,?,DEFAULT);";
+		
+		try {
+			getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bidx);
+			pstmt.setString(2, id);
+			pstmt.setString(3, reply);
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		
+		
+		return result;
+	}
+	
+	
+	//ëŒ“ê¸€ì‚­ì œ
+	public int delReply(int ridx) {
+		
+		String sql = "delete from reply where ridx = ?";
+		
+		getConnection();
+		
+		try {
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, ridx);
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			freeConnection();
+		}
+		
+		return result;
+	}
+	
+	
+		
 	
 	public BDao() {
 		InitialContext iCTX = null;
