@@ -77,9 +77,10 @@ INSERT into category VALUES(NULL,'[직거래]지방권','전라도지역',DEFAUL
 INSERT into category VALUES(NULL,'[직거래]지방권','충청도지역',DEFAULT,DEFAULT);
 INSERT into category VALUES(NULL,'[직거래]지방권','제주지역',DEFAULT,DEFAULT);
 INSERT into category VALUES(NULL,'[직거래]지방권','강원도지역',DEFAULT,DEFAULT);
-INSERT into member VALUES('joo333','3333','김연주','3333333333333',NULL,NULL,'01033333333',0);
-INSERT into member VALUES('test111','1111','테스트일','1111111111111',NULL,NULL,'01011111111',1);
-INSERT into member VALUES('test222','2222','테스트이','2222222222222',NULL,NULL,'01022222222',DEFAULT);
+
+INSERT into member VALUES('test111','1111','테스트일','1111111111111',NULL,NULL,'01011111111',0);
+INSERT into member VALUES('test222','2222','테스트이','2222222222222',NULL,NULL,'01022222222',1);
+INSERT into member VALUES('test333','3333','테스트삼','3333333333333',NULL,NULL,'01033333333',default);
 
 -- member테이블에 grade컬럼, category테이블에 readgrade,writegrade와 join해서 사용 
 CREATE TABLE grade(
@@ -97,109 +98,109 @@ INSERT INTO grade VALUES(100,'계정정지');
 
 
 
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','내용입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','내용2입니다',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','joo333','
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','내용입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','내용2입니다',DEFAULT,DEFAULT,NULL,1);
+INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북한산시티 아파트 전세 있습니다.(43평)','test111','
 ▶  피터팬 APP, WEB 동시 노출 동의 여부 (Y / N) :  
 
 ▶  주소 : 서울시 강북구 미아동 1353
@@ -254,7 +255,7 @@ INSERT INTO board VALUES(NULL,'[강북구] 서울시 강북구 미아동 sk북�
 
 - 태양열 설치 해서 전기세 정말 조금 나옵니다.',DEFAULT,DEFAULT,NULL,1);
 
-INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','joo333','
+INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/귀한 신축전세/역세권','test111','
 ▶  피터팬 APP, WEB 동시 노출 동의 여부 (Y / N) :  Y
 
 ▶  주소 : 서울시 영등포구 양평동1가 247
@@ -288,32 +289,67 @@ INSERT INTO board VALUES(NULL,'[영등포구] [영등포구]중흥 s 클래스/�
 ​
 
 ▶  상세설명 : 양평역 3분/ 협의가능 ',DEFAULT,DEFAULT,NULL,1);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
-INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test222','내용3입니다',DEFAULT,DEFAULT,NULL,8);
+INSERT INTO board VALUES(NULL,'[부산]아파트 부산시 북구 구포동 올수리 아파트 26평 매매합니다','test111','▶  피터팬 APP, WEB 동시 노출 동의 여부 (Y / N) :  Y
+
+▶  주소 : 서울시 영등포구 양평동1가 247
+
+▶  건물형태 :  주상복합아파트
+
+▶  거래 유형 :  협의
+
+▶  가격 : 7억
+
+▶  방개수 : 3개
+
+▶  옵션정보 :  친환경마감, 확장, 에어컨 4대(거실, 각 방), (세탁기, 김치냉장고, TV 가능)
+
+▶  관리비 : 
+
+▶  관리비 포함내역 : 
+
+▶  층수 :  중층
+
+▶  면적 :  59m^2
+
+▶  난방 방식 : 개별난방 
+
+▶  주차 가능 :  세대당 1.35대
+
+▶  이사가능일 :  4월~5월 가능
+
+▶  문의 연락처 : 010-6401-2841
+
+​
+
+▶  상세설명 : 양평역 3분/ 협의가능 ',DEFAULT,DEFAULT,NULL,8);
 
 
 
-INSERT INTO gob VALUES(1,'joo333',TRUE);
-INSERT INTO gob VALUES(1,'test111',TRUE);
-INSERT INTO gob VALUES(1,'test222',FALSE);
-INSERT INTO reply VALUES(NULL,1,'joo333','좋은 내용이네요',DEFAULT);
-INSERT INTO reply VALUES(NULL,2,'joo333','좋은 내용이네요',DEFAULT);
-INSERT INTO reply VALUES(NULL,1,'test111','동의합니다',DEFAULT);
+
+
+INSERT INTO gob VALUES(124,'test111',TRUE);
+INSERT INTO gob VALUES(124,'test222',TRUE);
+INSERT INTO gob VALUES(124,'test333',FALSE);
+INSERT INTO reply VALUES(NULL,124,'test111','좋은 내용이네요',DEFAULT);
+INSERT INTO reply VALUES(NULL,123,'test111','좋은 내용이네요',DEFAULT);
+INSERT INTO reply VALUES(NULL,124,'test222','동의합니다',DEFAULT);
