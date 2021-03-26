@@ -10,22 +10,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	
 <link rel="stylesheet" href="css/board/blist.css"/>
 <link rel="stylesheet" href="css/board/bread.css"/>
 <link rel="stylesheet" href="css/common/nav_category.css"/>
 <link rel="stylesheet" href="css/common/header.css"/>
-
 </head>
 <body>
-
 <div id="wrap">
-<%@ include file="/view/common/header.jsp" %>
-
+	<%@ include file="/view/common/header.jsp" %>
 	<section id="section1">
-<%@ include file="/view/common/nav_category.jsp" %>
-    
-    
+	<%@ include file="/view/common/nav_category.jsp" %>
 	<article id="read" style="
 							border : 1px solid lightgray;
 							border-radius: 5px;
@@ -53,19 +47,6 @@
                 <textarea style="resize: none;" readonly >${content}</textarea>
             </div>
         </article>
-        
-        
-        
-        
-        
-        
-        <%--댓글 가져오기 로직 --%>
-        <%
-        	 
-        %>
-        
-        
-        
         <!-- 댓글 가져오기 구현부 -->
         <article id="read-reply">
             <div style="border-bottom : 1px solid lightgray;
@@ -112,9 +93,7 @@
 	           		</c:otherwise>
 	           	</c:choose>
             </c:forEach>
-            
             </div>
-            
             
             <!-- 댓글입력 구현부 -->
             <form action="view/board/check_reply.jsp" style="border : 1px solid lightGray;
@@ -129,7 +108,6 @@
             	<input type="submit" value="등록" id="btn-reply" style="background-color : #7affcf; margin : 0px;">
             </form>
         </article>
-        
         
         <!-- 수정 삭제, 게시글의 작성자 아이디와, 로그인세션 ID값 검사하여 보여줌. -->
         <div id="btns">
@@ -149,6 +127,5 @@
     <%@ include file="/view/board/ajax_blist.jsp" %>
 	<%@ include file="/view/common/footer.jsp" %>
 </div>
-
 </body>
 </html>

@@ -8,10 +8,7 @@
 <html>
 <head>
 <title>Insert title here</title>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link rel="stylesheet" href="css/board/blist.css"/>
 <link rel="stylesheet" href="css/common/nav_category.css"/>
 <link rel="stylesheet" href="css/common/header.css"/>
@@ -113,6 +110,8 @@
 			var str ="board?cmd=blist&type="+type+"&keyword="+keyword+"&category="+category+"&psize="+$("#psize").val();
 			location.href=str;
 		});
+		
+		// 카테고리의 읽기 등급에 따라 읽을 수 있도록 처리
 		$(".content-read").click(function(e){
 			e.preventDefault();
 			//board?cmd=bread&idx=

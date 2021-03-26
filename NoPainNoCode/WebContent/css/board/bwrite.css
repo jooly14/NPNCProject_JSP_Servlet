@@ -1,20 +1,20 @@
 
-	/**********************************************************/
-	
-	select{
-		width: 740px;
-		height: 30px;
-	}
-	#title{
-		width: 100%;
-		height: 40px;
-	}
-	table tr:last-child td{
-		text-align: right;
-	}
-	table tr:last-child td input[type=submit]{ /* 확인버튼 */
-		width: 100px;
-	}
-	textarea{
-		width: 100%;
-	}
+/**********************************************************/
+
+select{
+	width: 740px;
+	height: 30px;
+}
+#title{
+	width: 100%;
+	height: 40px;
+}
+table tr:last-child td{
+	text-align: right;
+}
+table tr:last-child td input[type=submit]{ /* �솗�씤踰꾪듉 */
+	width: 100px;
+}
+textarea{
+	width: 100%;
+}

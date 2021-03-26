@@ -1,81 +1,81 @@
 #read-head{
-		    width: 740px;
-		}
-		
-		#edit{
-		    
-		}
-        .board-title{
-            font-weight: bold;
-        }
-        
-        textarea{
-        	width : 740px; 
-            height: 400px;
-            border : none;
-            border-top: 1px solid lightgray;
-            margin-top: 5px;
-            padding : 5px;
-        }
-        
-        #read-reply{
-        	width : 740px;
-        }
-        
-        #input-reply{
-        	width : 100%;
-        	height : 30px;
-        	border : none;
-        	margin-top: 5px;
-        	margin-bottom: 5px;
-        }
-        #input-reply : placeholder{
-        	color : lightgray;
-        }
-        
-        #btn-reply,#btn-edit,#btn-del,#btn-list{
-        	width : 60px;
-        	height : 30px;
-        	border : none;
-        	background-color: lightgray;
-        	border-radius : 3px;
-        	margin : 3px;
-        }
-        
-        a{
-        	text-decoration: none;
-        	color : black;
-        }
-        a:visited{
-        	color : black;
-        }
-        board-title:visited {
-			color : #03c75a;
-		}
-		#reply-del{
-			border : none;
-			font-size: 12px;
-			width : 30px;
-			height : 20px;
-			border-radius : 5px;
-		}
-		#ajax-blist td{
-			padding:10px;
-			border-bottom:1px solid #f2f2f2;
-			font-size:14px;
-		}
-		#ajax-blist{
-			border-top: 1px solid black;
-			width:74%;
-		}
-		#ajax-blist .blist-btn{
-		    color:black;
-		    cursor:pointer;
-	        width: 24px;
-		    height: 24px;
-		    text-align: center;
-		    font-size: 14px;
-		}
-		#ajax-blist .blist-btn:hover{
-			text-decoration:underline;
-		}
+    width: 740px;
+}
+
+#edit{
+    
+}
+.board-title{
+    font-weight: bold;
+}
+
+textarea{
+	width : 740px; 
+    height: 400px;
+    border : none;
+    border-top: 1px solid lightgray;
+    margin-top: 5px;
+    padding : 5px;
+}
+
+#read-reply{
+	width : 740px;
+}
+
+#input-reply{
+	width : 100%;
+	height : 30px;
+	border : none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#input-reply : placeholder{
+	color : lightgray;
+}
+
+#btn-reply,#btn-edit,#btn-del,#btn-list{
+	width : 60px;
+	height : 30px;
+	border : none;
+	background-color: lightgray;
+	border-radius : 3px;
+	margin : 3px;
+}
+
+a{
+	text-decoration: none;
+	color : black;
+}
+a:visited{
+	color : black;
+}
+board-title:visited {
+	color : #03c75a;
+}
+#reply-del{
+	border : none;
+	font-size: 12px;
+	width : 30px;
+	height : 20px;
+	border-radius : 5px;
+}
+#ajax-blist td{
+	padding:10px;
+	border-bottom:1px solid #f2f2f2;
+	font-size:14px;
+}
+#ajax-blist{
+	border-top: 1px solid black;
+	width:74%;
+}
+#ajax-blist .blist-btn{
+    color:black;
+    cursor:pointer;
+       width: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 14px;
+}
+#ajax-blist .blist-btn:hover{
+	text-decoration:underline;
+}
