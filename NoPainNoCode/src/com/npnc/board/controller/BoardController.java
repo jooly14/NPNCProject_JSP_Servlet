@@ -28,13 +28,13 @@ public class BoardController extends HttpServlet {
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String viewpage="";
-		String cmd = request.getParameter("cmd");
+		String viewpage="";								//이동할 jsp 페이지
+		String cmd = request.getParameter("cmd");		//사용자 요청 기능
 		System.out.println("rInsert확인용 : "+cmd);
 		CommandHandler handler = null;
 		
 		if(cmd == null){
-			handler = new BListHandler();
+			handler = new BListHandler();				//cmd파라미터에 맞는 handler생성
 		}else if(cmd.equals("blist")){
 			handler = new BListHandler();
 		}else if(cmd.equals("bwrite")){
@@ -58,10 +58,10 @@ public class BoardController extends HttpServlet {
 			System.out.println("rInsert 들어왔음!");
 		}
 		
-		viewpage = handler.process(request,response);
-		handler = new MGradeHandler();
+		viewpage = handler.process(request,response);	//dao 호출 및 필요 기능 실행하고 jsp페이지 받아오기
+		handler = new MGradeHandler();					//회원등급을 알기 위해서
 		handler.process(request, response);
-		CommandHandler clistHandler = new CListHandler();
+		CommandHandler clistHandler = new CListHandler();	//모든 페이지에 카테고리를 불러와야되기 때문에
 		clistHandler.process(request, response);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
 		dispatcher.forward(request, response);

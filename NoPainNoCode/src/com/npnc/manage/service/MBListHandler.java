@@ -49,8 +49,6 @@ public class MBListHandler extends BListHandler {
 		request.setAttribute("type", type);				//검색할때 카테고리(제목,내용,아이디)
 		request.setAttribute("keyword", keyword);		//검색어
 		request.setAttribute("category", category);		//현재 선택 중인 카테고리(ex.수도권-강남 카테고리의 인덱스)
-		
-
 		return "view/manage/blist.jsp";
 	}
 	public void setTotalCnt(int totalCnt) {				//getList()메서드에서 두개를 반환할 수 없어서 따로 setter를 준비(메서드 내부에서 호출해서 totalcnt값을 전달)

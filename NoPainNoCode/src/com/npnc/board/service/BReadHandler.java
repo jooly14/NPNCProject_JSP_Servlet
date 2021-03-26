@@ -19,13 +19,7 @@ public class BReadHandler implements CommandHandler{
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		
-		
-		/*게시글에 보여질 정보
-		 * 카테고리 대분류, 게시판 이름
-		 * 글제목, 작성자, 등록일자, 글내용, 글번호
-		 * 좋아요 수, 싫어요 수
-		 */
-		int idx = Integer.parseInt(request.getParameter("idx")); //요청된 글번호
+		int idx = Integer.parseInt(request.getParameter("idx")); // �Խñ� idx
 		
 		BDao bdao = new BDao();
 		Vector<BDto> bdto = bdao.getArticle(idx);
@@ -33,11 +27,11 @@ public class BReadHandler implements CommandHandler{
 		CDao cdao = new CDao();
 		Vector<CDto> cdto = bdao.getBoardTitle(idx);
 		
-		//카테고리dto
+		//ī�װ��� dto
 		String categoryName = cdto.get(0).getName();
 		int category = cdto.get(0).getIdx();
 		
-		//게시판dto
+		//�Խñ� dto
 		String title = bdto.get(0).getTitle();
 		String id = bdto.get(0).getId();
 		Timestamp regDate = bdto.get(0).getRegdate();
@@ -47,7 +41,7 @@ public class BReadHandler implements CommandHandler{
 		int good = bdto.get(0).getGood();
 		int bad = bdto.get(0).getBad();
 		
-		//댓글 가져오기
+		//��� dto
 		Vector<RDto> rdto = bdao.getReply(idx);
 		
 		

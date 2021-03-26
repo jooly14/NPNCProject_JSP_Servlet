@@ -18,10 +18,6 @@ public class RDeleteHandler implements CommandHandler {
 		
 		bdao.delReply(ridx);
 		
-		
-		
-		
-		//게시글 번호를 가져와서 뷰페이지를 그쪽으로 보내버린다.
 		return "board?cmd=bread&idx="+bidx;
 	}
 

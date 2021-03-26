@@ -16,7 +16,7 @@ import com.npnc.board.dto.RDto;
 import com.npnc.board.service.BListHandler;
 import com.npnc.category.dto.CDto;
 
-public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
+public class BDao {	//°Ô½Ã±Û °ü·Ã DAO
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -24,17 +24,17 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	
 	DataSource dataSource = null;
 	
-	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//°Ô½ÃÆÇ ¸®½ºÆ® °¡Á®¿À±â
 	public Vector<BDto> getList(BListHandler handler,String type,String keyword,String category2, int page, int pagesize){
-		//gobï¿½ï¿½ï¿½Ìºï¿½ï¿½ left outer joinï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ replyï¿½ï¿½ï¿½Ìºï¿½ï¿½ left outer joinï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//gobÅ×ÀÌºí°ú left outer joinÀ¸·Î ÁÁ¾Æ¿ä °³¼ö¸¦ °¡Á®¿À°í replyÅ×ÀÌºí°ú left outer joinÀ¸·Î ´ñ±Û °³¼ö¸¦ °°ÀÌ °¡Á®¿È
 		String sql = "select SQL_CALC_FOUND_ROWS b.*, good.cnt AS good, reply.repcnt AS repcnt FROM board as b LEFT outer join (SELECT idx,gob,COUNT(id) AS cnt FROM gob GROUP BY idx, gob HAVING gob = true) AS good ON b.idx = good.idx left outer join (SELECT bidx, COUNT(bidx) AS repcnt FROM reply GROUP BY bidx) AS reply ON b.idx = reply.bidx";
-		if(category2!=null&&!category2.isEmpty()){	//Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		if(category2!=null&&!category2.isEmpty()){	//Ä«Å×°í¸®¸¦ µû·Î Á¤ÇÏÁö ¾ÊÀ¸¸é ÀüÃ¼ °Ô½Ã±ÛÀ» °¡Á®¿Àµµ·Ï 
 			sql = sql + " where category = " + category2;
-			if(type!=null&&!type.isEmpty()){		//ï¿½Ë»ï¿½
+			if(type!=null&&!type.isEmpty()){		//°Ë»ö
 				sql= sql + " and "+type+" like '%" +keyword+"%'" ;
 			}
 		}else{
-			if(type!=null&&!type.isEmpty()){		//ï¿½Ë»ï¿½
+			if(type!=null&&!type.isEmpty()){		//°Ë»ö
 				sql= sql + " where "+type+" like '%" +keyword+"%'" ;
 			}
 		}
@@ -60,7 +60,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 				BDto dto = new BDto(idx, title, id, content, regDate, hit, file, category, good, 0, null, replyCnt);
 				dtos.add(dto);
 			}
-			getTotalCnt(handler);	//ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
+			getTotalCnt(handler);	//ÀüÃ¼ °Ô½Ã±Û °³¼ö
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 		return dtos;
 	}
 	
-	//ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ÀüÃ¼ °Ô½Ã±Û °³¼ö¸¦ °¡Á®¿À±â
 	public void getTotalCnt(BListHandler handler){
 		PreparedStatement pstmt2 = null;
 		ResultSet rs2 = null;
@@ -95,7 +95,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 		}
 	}
 	
-	// ê²Œì‹œê¸€ ì…ë ¥
+	// °Ô½Ã±Û ¾²±â 
 	public int insert(String id, String category, String title, String content, String file) {
 		
 		try {
@@ -118,7 +118,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	}
 	
 	
-	//ê²Œì‹œê¸€ ìˆ˜ì •
+	// °Ô½Ã±Û ¼öÁ¤
 	public int updateArticle(String title, String content, int idx) {
 		
 		try {
@@ -144,7 +144,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	}
 	
 	
-	//ê²Œì‹œê¸€ ì½ê¸°
+	// °Ô½Ã±Û ÀĞ±â
 	public Vector getArticle(int idx) {
 		Vector<BDto> v = new Vector();
 		
@@ -193,7 +193,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 		return v;
 	}
 		
-	//ì¹´í…Œê³ ë¦¬ì œëª© ê°€ì ¸ì˜¤ê¸°
+	// Ä«Å×°í¸® ÀÌ¸§ °¡Á®¿À±â
 	public Vector getBoardTitle(int idx) {
 		
 		Vector<CDto> v = new Vector();
@@ -224,7 +224,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	}
 		
 	
-	//ê²Œì‹œê¸€ ì‚­ì œ
+	// °Ô½Ã±Û »èÁ¦
 	public int deleteArticle(int idx) {
 		
 		String sql = "DELETE FROM board WHERE idx = ?";
@@ -246,7 +246,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	}
 	
 	
-	//ëŒ“ê¸€ ê°€ì ¸ì˜¤ê¸°
+	// ´ñ±Û °¡Á®¿À±â
 	public Vector<RDto> getReply(int bidx){
 		Vector<RDto> v = new Vector();
 		
@@ -261,10 +261,10 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 			
 			while(rs.next()) {
 				
-				int ridx = rs.getInt(1);				//ëŒ“ê¸€ idx
-				String id = rs.getString(3);			//ì‘ì„±ì ì•„ì´ë””
-				String rContent = rs.getString(4);		//ëŒ“ê¸€ ë‚´ìš©
-				Timestamp regDate = rs.getTimestamp(5);	//ëŒ“ê¸€ ì‘ì„±ì¼ì
+				int ridx = rs.getInt(1);				//´ñ±Û idx
+				String id = rs.getString(3);			//¾ÆÀÌµğ
+				String rContent = rs.getString(4);		//´ñ±Û ³»¿ë
+				Timestamp regDate = rs.getTimestamp(5);	//ÀÛ¼º½Ã°£
 				
 				RDto rdto = new RDto(ridx, bidx, id, rContent, regDate);
 				
@@ -280,7 +280,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 		return v;
 	}
 	
-	//ì¢‹ì•„ìš”, ì‹«ì–´ìš”
+	// ÁÁ¾Æ¿ä ½È¾î¿ä µî·Ï
 	public int upGob(int idx, String id, boolean gob){
 		String sql = "INSERT INTO gob VALUES(?,?,?)";
 		
@@ -297,23 +297,16 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 			
 			result = pstmt.executeUpdate();
 			
-			
-			
 		}catch(Exception e) {
 			e.printStackTrace();
-			
-			//ì´ë¯¸ ì¢‹ì•„ìš”orì‹«ì–´ìš” í•œ ì  ìˆìœ¼ë©´ 0
 			result = 0;
 		}finally {
 			freeConnection();
 		}
-		
-		System.out.println("ì¢‹ì•„ìš” ê²°ê³¼ : " + result);
-		
 		return result;
 	}
 	
-	//ëŒ“ê¸€ì…ë ¥
+	// ´ñ±Û µî·Ï
 	public int insertReply(int bidx, String id, String reply) {
 		
 		
@@ -339,7 +332,7 @@ public class BDao {	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ DAO
 	}
 	
 	
-	//ëŒ“ê¸€ì‚­ì œ
+	// ´ñ±Û »èÁ¦
 	public int delReply(int ridx) {
 		
 		String sql = "delete from reply where ridx = ?";
