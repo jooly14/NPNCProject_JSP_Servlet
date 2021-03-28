@@ -5,7 +5,7 @@
 - Tomcat 8.5  
 - Servlet 3.1 / JSP 2.3
 - HTML/ CSS/ JavaScript/ Jquery
-- MariaDB
+- MariaDB 10.4
 - Ajax/ Json(json-simple.jar, gson.jar)
 - cos.jar
 ### 2. 부동산 정보 공유 웹사이트 구현
